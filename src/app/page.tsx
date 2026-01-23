@@ -52,10 +52,10 @@ export default function Home() {
             </Link>
           </div>
         </div>
-      </header >
+      </header>
 
       {/* How it Works */}
-      < section className="py-20 px-6 bg-white/50 backdrop-blur-sm relative" >
+      <section className="py-20 px-6 bg-white/50 backdrop-blur-sm relative">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-slate-900 mb-4">كيف تعمل وقاية جين؟</h2>
