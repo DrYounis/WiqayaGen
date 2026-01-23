@@ -189,10 +189,10 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section >
+      </section>
 
       {/* Footer */}
-      < footer className="bg-slate-950 text-slate-400 py-12 px-6 text-sm" >
+      <footer className="bg-slate-950 text-slate-400 py-12 px-6 text-sm">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="text-center md:text-right">
             <div className="text-2xl font-bold text-white tracking-tighter mb-2">
@@ -202,9 +202,9 @@ export default function Home() {
           </div>
 
           <div className="flex gap-6">
-            <a href="#" className="hover:text-white transition-colors">عن المنصة</a>
-            <a href="#" className="hover:text-white transition-colors">الخصوصية</a>
-            <a href="#" className="hover:text-white transition-colors">اتصل بنا</a>
+            <Link href="/executive-summary" className="hover:text-white transition-colors">ملخص المشروع</Link>
+            <Link href="/tech-specs" className="hover:text-white transition-colors">التقنية</Link>
+            <Link href="/pitch-deck" className="hover:text-white transition-colors">العرض التقديمي</Link>
           </div>
 
           <div className="flex items-center gap-2 opacity-60">
@@ -212,7 +212,7 @@ export default function Home() {
             <BrainCircuit className="w-4 h-4" />
           </div>
         </div>
-      </footer >
-    </div >
+      </footer>
+    </div>
   );
 }
