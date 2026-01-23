@@ -7,9 +7,16 @@ export default function Home() {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 overflow-x-hidden">
       {/* Navbar via absolute positioning for now */}
       <nav className="absolute top-0 w-full p-6 flex justify-between items-center z-50 max-w-7xl left-0 right-0 mx-auto">
-        <div className="text-2xl font-bold text-blue-900 tracking-tighter">
+        <Link href="/" className="text-2xl font-bold text-blue-900 tracking-tighter">
           وقاية<span className="text-teal-500">جين</span>
+        </Link>
+
+        <div className="hidden md:flex gap-8 font-medium text-slate-600">
+          <Link href="/executive-summary" className="hover:text-blue-900 transition-colors">ملخص المشروع</Link>
+          <Link href="/tech-specs" className="hover:text-blue-900 transition-colors">التقنية</Link>
+          <Link href="/pitch-deck" className="hover:text-blue-900 transition-colors">العرض التقديمي</Link>
         </div>
+
         <button className="hidden md:block px-6 py-2 bg-white/50 backdrop-blur-sm border border-blue-100 text-blue-900 rounded-full hover:bg-white transition-colors font-medium">
           تسجيل الدخول
         </button>
