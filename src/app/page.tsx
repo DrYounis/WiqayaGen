@@ -17,9 +17,9 @@ export default function Home() {
           <Link href="/pitch-deck" className="hover:text-blue-900 transition-colors">العرض التقديمي</Link>
         </div>
 
-        <button className="hidden md:block px-6 py-2 bg-white/50 backdrop-blur-sm border border-blue-100 text-blue-900 rounded-full hover:bg-white transition-colors font-medium">
-          تسجيل الدخول
-        </button>
+        <Link href="/join-waitlist" className="hidden md:block px-6 py-2 bg-gradient-to-r from-blue-600 to-teal-500 text-white rounded-full hover:shadow-lg hover:scale-105 transition-all font-medium">
+          ابدأ الآن
+        </Link>
       </nav>
 
       {/* Hero Section */}
@@ -48,10 +48,10 @@ export default function Home() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <button className="px-8 py-4 bg-blue-900 text-white rounded-xl shadow-lg shadow-blue-900/20 hover:bg-blue-800 transition-all transform hover:scale-105 font-bold text-lg flex items-center gap-2">
+            <Link href="/join-waitlist" className="px-8 py-4 bg-blue-900 text-white rounded-xl shadow-lg shadow-blue-900/20 hover:bg-blue-800 transition-all transform hover:scale-105 font-bold text-lg flex items-center gap-2">
               انضم لقائمة الانتظار
               <TrendingUp className="w-5 h-5" />
-            </button>
+            </Link>
 
             <Link href="/executive-summary" className="px-8 py-4 bg-white text-slate-700 border border-slate-200 rounded-xl hover:bg-slate-50 transition-all font-medium text-lg flex items-center gap-2">
               <FileText className="w-5 h-5" />

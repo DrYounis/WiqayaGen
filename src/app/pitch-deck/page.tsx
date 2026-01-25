@@ -93,13 +93,8 @@ export default function PitchDeck() {
     // Keyboard navigation
     useEffect(() => {
         const handleKeyDown = (e: KeyboardEvent) => {
-            if (e.key === 'ArrowLeft') nextSlide();
-            if (e.key === 'ArrowRight') nextSlide();
-            // Correcting visual direction for RTL:
-            // Left key usually means "Back" in LTR, but visually "Next" in LTR.
-            // In RTL context, "Next" is to the Left visually? 
-            // In Slideshows, Right Arrow = Next Slide universally. Let's keep it.
             if (e.key === 'ArrowLeft') prevSlide();
+            if (e.key === 'ArrowRight') nextSlide();
         };
 
         window.addEventListener('keydown', handleKeyDown);
@@ -187,17 +182,17 @@ export default function PitchDeck() {
 
                     {/* Navigation Buttons */}
                     <button
-                        onClick={prevSlide}
+                        onClick={nextSlide}
                         className="hidden md:flex absolute top-1/2 -right-16 -translate-y-1/2 p-4 text-slate-500 hover:text-white hover:bg-slate-800/50 rounded-full transition-all hover:scale-110 active:scale-95 z-20"
-                        aria-label="Previous Slide"
+                        aria-label="Next Slide"
                     >
                         <ChevronRight className="w-12 h-12" />
                     </button>
 
                     <button
-                        onClick={nextSlide}
+                        onClick={prevSlide}
                         className="hidden md:flex absolute top-1/2 -left-16 -translate-y-1/2 p-4 text-slate-500 hover:text-white hover:bg-slate-800/50 rounded-full transition-all hover:scale-110 active:scale-95 z-20"
-                        aria-label="Next Slide"
+                        aria-label="Previous Slide"
                     >
                         <ChevronLeft className="w-12 h-12" />
                     </button>
@@ -210,7 +205,7 @@ export default function PitchDeck() {
                         onClick={prevSlide}
                         className="p-3 text-slate-400 bg-slate-900 rounded-full border border-slate-800 hover:bg-slate-800"
                     >
-                        <ChevronRight className="w-6 h-6" />
+                        <ChevronLeft className="w-6 h-6" />
                     </button>
                     <span className="text-slate-500 font-mono">
                         {currentSlide + 1} / {slides.length}
@@ -219,7 +214,7 @@ export default function PitchDeck() {
                         onClick={nextSlide}
                         className="p-3 text-slate-400 bg-slate-900 rounded-full border border-slate-800 hover:bg-slate-800"
                     >
-                        <ChevronLeft className="w-6 h-6" />
+                        <ChevronRight className="w-6 h-6" />
                     </button>
                 </div>
 
