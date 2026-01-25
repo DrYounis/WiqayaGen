@@ -1,7 +1,8 @@
 "use client";
 import React, { useState, useEffect } from 'react';
-import { Presentation, ArrowRight, ArrowLeft, TrendingUp, Users, Target, Zap, Shield, HelpCircle, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ArrowRight, ArrowLeft, ChevronLeft, ChevronRight } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function PitchDeck() {
     const [currentSlide, setCurrentSlide] = useState(0);
@@ -9,7 +10,7 @@ export default function PitchDeck() {
     const slides = [
         {
             title: "1. الغلاف (The Hook)",
-            icon: <Target className="w-12 h-12 text-blue-400" />,
+            imageSrc: "/images/pitch-deck/slide-1.png",
             content: [
                 "العنوان: WiqayaGen | وقاية جين",
                 "العنوان الفرعي: الجيل القادم من التأمين الصحي: من \"دفع الفواتير\" إلى \"هندسة الصحة\".",
@@ -18,7 +19,7 @@ export default function PitchDeck() {
         },
         {
             title: "2. المشكلة (The Money Leak)",
-            icon: <TrendingUp className="w-12 h-12 text-red-400" />,
+            imageSrc: "/images/pitch-deck/slide-2.png",
             content: [
                 "التأمين اليوم يدفع لـ \"الحريق\" بدلاً من منعه.",
                 "70% من المطالبات تذهب لأمراض مزمنة يمكن الوقاية منها.",
@@ -28,7 +29,7 @@ export default function PitchDeck() {
         },
         {
             title: "3. الحل (The Solution)",
-            icon: <Zap className="w-12 h-12 text-yellow-400" />,
+            imageSrc: "/images/pitch-deck/slide-3.png",
             content: [
                 "الذكاء الجينومي كأداة لإدارة المخاطر.",
                 "المعادلة: بيانات جينية + ذكاء اصطناعي = خطة وقاية دقيقة.",
@@ -37,7 +38,7 @@ export default function PitchDeck() {
         },
         {
             title: "4. التقنية (The Secret Sauce)",
-            icon: <Shield className="w-12 h-12 text-teal-400" />,
+            imageSrc: "/images/pitch-deck/slide-4.png",
             content: [
                 "تحليل PRS: حساب دقيق للمخاطر الوراثية.",
                 "AI Health Agent: مرافق صحي ذكي 24/7.",
@@ -46,7 +47,7 @@ export default function PitchDeck() {
         },
         {
             title: "5. نموذج العمل (Business Model)",
-            icon: <Users className="w-12 h-12 text-purple-400" />,
+            imageSrc: "/images/pitch-deck/slide-5.png",
             content: [
                 "شركات التأمين: تقليل المطالبات بنسبة 15%.",
                 "المريض: حياة أطول بصحة أفضل.",
@@ -55,7 +56,7 @@ export default function PitchDeck() {
         },
         {
             title: "6. السوق والمنافسة",
-            icon: <HelpCircle className="w-12 h-12 text-indigo-400" />,
+            imageSrc: "/images/pitch-deck/slide-6.png",
             content: [
                 "رؤية 2030: التركيز على الوقاية.",
                 "هيفولوشن: المملكة عاصمة لأبحاث إطالة العمر.",
@@ -64,7 +65,7 @@ export default function PitchDeck() {
         },
         {
             title: "7. الطلب (The Ask)",
-            icon: <Target className="w-12 h-12 text-green-400" />,
+            imageSrc: "/images/pitch-deck/slide-7.png",
             content: [
                 "نطلب شراكة تشريعية (Sandbox) في \"إبصار\".",
                 "هدفنا: إثبات المفهوم مع 1000 مستخدم.",
@@ -73,7 +74,7 @@ export default function PitchDeck() {
         },
         {
             title: "8. الفريق (The Team)",
-            icon: <Users className="w-12 h-12 text-slate-200" />,
+            imageSrc: "/images/pitch-deck/slide-8.png",
             content: [
                 "د. محمد يونس: طبيب عائلة + خبرة تأمينية.",
                 "فريق تقني متخصص في AI & Bioinformatics."
@@ -92,12 +93,12 @@ export default function PitchDeck() {
     // Keyboard navigation
     useEffect(() => {
         const handleKeyDown = (e: KeyboardEvent) => {
-            if (e.key === 'ArrowLeft') nextSlide();  // RTL: Left arrow goes to next slide logic wise for Arabic flow? Usually Left is Back, Right is Next. But let's stick to logical direction.
-            // Let's stick to standard: Right Arrow -> Next, Left Arrow -> Previous. 
-            // WAIT: In RTL, "Next" (Forward) is usually Left Arrow visually. 
-            // In a presentation context, Right Key usually advances. Let's make Right Key -> Next slide for universality, 
-            // but visually the "Next" button might be on the left.
+            if (e.key === 'ArrowLeft') nextSlide();
             if (e.key === 'ArrowRight') nextSlide();
+            // Correcting visual direction for RTL:
+            // Left key usually means "Back" in LTR, but visually "Next" in LTR.
+            // In RTL context, "Next" is to the Left visually? 
+            // In Slideshows, Right Arrow = Next Slide universally. Let's keep it.
             if (e.key === 'ArrowLeft') prevSlide();
         };
 
@@ -130,47 +131,75 @@ export default function PitchDeck() {
             </nav>
 
             {/* Main Slide Content */}
-            <main className="relative z-10 w-full max-w-5xl px-4 md:px-12 flex-1 flex flex-col justify-center">
+            <main className="relative z-10 w-full max-w-6xl px-4 md:px-12 flex-1 flex flex-col justify-center">
 
                 <div className="relative">
-                    {/* Content Card */}
-                    <div className="bg-slate-900/50 backdrop-blur-xl border border-slate-800 rounded-3xl p-8 md:p-16 shadow-2xl transition-all duration-500 min-h-[500px] flex flex-col justify-center items-center text-center">
+                    {/* Content Card with Image */}
+                    <div className="bg-slate-900/60 backdrop-blur-xl border border-slate-800 rounded-3xl p-8 md:p-12 shadow-2xl transition-all duration-500 min-h-[600px] flex flex-col md:flex-row items-center gap-8 md:gap-12">
 
-                        <div className="mb-8 p-4 bg-slate-800/50 rounded-2xl ring-1 ring-slate-700 shadow-lg">
-                            {currentSlideData.icon}
+                        {/* Image Section (Right on RTL, Left on LTR - but standard Flex is Row) */}
+                        <div className="w-full md:w-1/2 flex justify-center items-center">
+                            <div className="relative w-64 h-64 md:w-96 md:h-96">
+                                {/* Glow Effect behind image */}
+                                <div className="absolute inset-0 bg-blue-500/20 blur-3xl rounded-full"></div>
+                                <Image
+                                    src={currentSlideData.imageSrc}
+                                    alt={currentSlideData.title}
+                                    fill
+                                    className="object-contain drop-shadow-2xl animate-in fade-in zoom-in duration-700"
+                                    priority
+                                />
+                            </div>
                         </div>
 
-                        <h2 className="text-3xl md:text-5xl font-extrabold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-white to-slate-400 leading-tight">
-                            {currentSlideData.title}
-                        </h2>
+                        {/* Text Section */}
+                        <div className="w-full md:w-1/2 text-center md:text-right"> {/* md:text-right for RTL feel if desired, but centered is fine too. Let's stick to Center/Right logic */}
 
-                        <div className="space-y-6 max-w-2xl text-lg md:text-xl text-slate-300 font-light leading-relaxed">
-                            {currentSlideData.content.map((point, idx) => (
-                                <p key={idx} className="flex items-center justify-center gap-3">
-                                    {/* <span className="w-1.5 h-1.5 bg-teal-500 rounded-full shrink-0 mt-2"></span> */}
-                                    {point}
-                                </p>
-                            ))}
+                            <h2 className="text-3xl md:text-4xl font-extrabold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-white to-slate-300 leading-tight">
+                                {currentSlideData.title}
+                            </h2>
+
+                            <div className="space-y-6 text-lg md:text-xl text-slate-300 font-light leading-relaxed">
+                                {currentSlideData.content.map((point, idx) => (
+                                    <p key={idx} className="flex items-start gap-3 justify-center md:justify-start">
+                                        {/* Using md:justify-start makes sense if RTL is strictly followed, assuming container is rtl. 
+                                        Since we have dir="rtl" on layout, flex-row items order will be reversed (Image Right, Text Left).
+                                        Wait, dir="rtl" makes first item absolute right?
+                                        Flex Row: Item 1 (Image), Item 2 (Text).
+                                        In RTL: Item 1 is Right, Item 2 is Left.
+                                        So Text will be on the Left. 
+                                        Usually Pitch Decks have Image Left, Text Right in LTR. 
+                                        In RTL, Image Right, Text Left is standard.
+                                        So the current order <Image> <Text> is correct for RTL (Image starts right).
+                                        Alignment: md:text-right (align text to right) is WRONG if text is on left. It should be md:text-right if it's purely RTL text block.
+                                        Let's keep it centered on mobile, and justified right (start in RTL) on desktop?
+                                        Actually, let's trust standard flow.
+                                     */}
+                                        <span className="w-1.5 h-1.5 bg-teal-500 rounded-full shrink-0 mt-2.5 hidden md:block"></span>
+                                        {point}
+                                    </p>
+                                ))}
+                            </div>
                         </div>
 
                     </div>
 
 
-                    {/* Navigation Buttons (Desktop: on Sides) */}
+                    {/* Navigation Buttons */}
                     <button
                         onClick={prevSlide}
-                        className="hidden md:flex absolute top-1/2 -right-20 -translate-y-1/2 p-4 text-slate-500 hover:text-white hover:bg-slate-800/50 rounded-full transition-all hover:scale-110 active:scale-95"
+                        className="hidden md:flex absolute top-1/2 -right-16 -translate-y-1/2 p-4 text-slate-500 hover:text-white hover:bg-slate-800/50 rounded-full transition-all hover:scale-110 active:scale-95 z-20"
                         aria-label="Previous Slide"
                     >
-                        <ChevronRight className="w-10 h-10" />
+                        <ChevronRight className="w-12 h-12" />
                     </button>
 
                     <button
                         onClick={nextSlide}
-                        className="hidden md:flex absolute top-1/2 -left-20 -translate-y-1/2 p-4 text-slate-500 hover:text-white hover:bg-slate-800/50 rounded-full transition-all hover:scale-110 active:scale-95"
+                        className="hidden md:flex absolute top-1/2 -left-16 -translate-y-1/2 p-4 text-slate-500 hover:text-white hover:bg-slate-800/50 rounded-full transition-all hover:scale-110 active:scale-95 z-20"
                         aria-label="Next Slide"
                     >
-                        <ChevronLeft className="w-10 h-10" />
+                        <ChevronLeft className="w-12 h-12" />
                     </button>
 
                 </div>
