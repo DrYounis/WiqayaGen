@@ -9,7 +9,7 @@ export default function PitchDeck() {
 
     const slides = [
         {
-            title: "الانطلاقة (The Hook)",
+            title: "الانطلاقة",
             imageSrc: "/images/pitch-deck/slide-1.png",
             content: [
                 "العنوان: WiqayaGen | وقاية جين",
@@ -18,7 +18,7 @@ export default function PitchDeck() {
             ]
         },
         {
-            title: "المشكلة (The Problem)",
+            title: "المشكلة",
             imageSrc: "/images/pitch-deck/slide-2.png",
             content: [
                 "التأمين اليوم يدفع لـ \"الحريق\" بدلاً من منعه.",
@@ -28,7 +28,7 @@ export default function PitchDeck() {
             ]
         },
         {
-            title: "الحل (The Solution)",
+            title: "الحل",
             imageSrc: "/images/pitch-deck/slide-3.png",
             content: [
                 "الذكاء الجينومي كأداة لإدارة المخاطر.",
@@ -37,7 +37,7 @@ export default function PitchDeck() {
             ]
         },
         {
-            title: "التقنية (The Technology)",
+            title: "التقنية",
             imageSrc: "/images/pitch-deck/slide-4.png",
             content: [
                 "تحليل PRS: حساب دقيق للمخاطر الوراثية.",
@@ -46,7 +46,7 @@ export default function PitchDeck() {
             ]
         },
         {
-            title: "نموذج العمل (Business Model)",
+            title: "نموذج العمل",
             imageSrc: "/images/pitch-deck/slide-5.png",
             content: [
                 "شركات التأمين: تقليل المطالبات بنسبة 15%.",
@@ -55,7 +55,7 @@ export default function PitchDeck() {
             ]
         },
         {
-            title: "السوق (The Market)",
+            title: "السوق",
             imageSrc: "/images/pitch-deck/slide-6.png",
             content: [
                 "رؤية 2030: التركيز على الوقاية.",
@@ -64,7 +64,7 @@ export default function PitchDeck() {
             ]
         },
         {
-            title: "المطلوب (The Ask)",
+            title: "المطلوب",
             imageSrc: "/images/pitch-deck/slide-7.png",
             content: [
                 "نطلب شراكة تشريعية (Sandbox) في \"إبصار\".",
@@ -73,7 +73,7 @@ export default function PitchDeck() {
             ]
         },
         {
-            title: "الفريق (The Team)",
+            title: "الفريق",
             imageSrc: "/images/pitch-deck/slide-8.png",
             content: [
                 "د. محمد يونس: طبيب عائلة + خبرة تأمينية.",
