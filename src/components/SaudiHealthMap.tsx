@@ -39,8 +39,8 @@ export default function SaudiHealthMap() {
             >
                 <div className="w-3 h-3 bg-green-500 rounded-full animate-ping"></div>
                 <div>
-                    <div className="text-xs text-slate-400">Riyadh</div>
-                    <div className="text-sm font-bold text-white">High Genetic Activity</div>
+                    <div className="text-xs text-slate-400 font-sans">الرياض</div>
+                    <div className="text-sm font-bold text-white font-sans">نشاط جيني مرتفع</div>
                 </div>
             </motion.div>
 
@@ -50,8 +50,8 @@ export default function SaudiHealthMap() {
             >
                 <div className="w-3 h-3 bg-blue-500 rounded-full animate-ping"></div>
                 <div>
-                    <div className="text-xs text-slate-400">Jeddah</div>
-                    <div className="text-sm font-bold text-white">450+ New Tests</div>
+                    <div className="text-xs text-slate-400 font-sans">جدة</div>
+                    <div className="text-sm font-bold text-white font-sans">450+ فحص جديد</div>
                 </div>
             </motion.div>
 
@@ -69,10 +69,10 @@ export default function SaudiHealthMap() {
                     </svg>
                     <div className="absolute inset-0 flex flex-col items-center justify-center">
                         <span className="text-5xl md:text-7xl font-bold text-white tracking-tighter">{score}</span>
-                        <span className="text-sm md:text-base text-teal-400 font-medium uppercase tracking-widest mt-2">National Score</span>
+                        <span className="text-sm md:text-base text-teal-400 font-medium uppercase tracking-widest mt-2 font-sans">المؤشر الوطني</span>
                     </div>
                 </div>
-                <p className="text-slate-400 mt-4 text-sm font-mono">Live Prevention Index • Saudi Arabia</p>
+                <p className="text-slate-400 mt-4 text-sm font-mono font-sans">مؤشر الوقاية الحي • المملكة العربية السعودية</p>
             </div>
 
         </div>

@@ -30,10 +30,10 @@ export default function TechSpecs() {
                     </div>
                     <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 leading-tight">
                         كيف يعمل السحر؟ <br />
-                        <span className="text-blue-600">The Technology Stack</span>
+                        <span className="text-blue-600">البنية التقنية</span>
                     </h1>
                     <p className="text-xl text-slate-600 leading-relaxed">
-                        محرك "وقاية جين" يعتمد على هيكلية تقنية هجينة تدمج المعلوماتية الحيوية (Bioinformatics) مع الذكاء الاصطناعي التوليدي.
+                        محرك "وقاية جين" يعتمد على هيكلية تقنية هجينة تدمج المعلوماتية الحيوية مع الذكاء الاصطناعي التوليدي.
                     </p>
                 </header>
 
@@ -47,7 +47,7 @@ export default function TechSpecs() {
                             </div>
                             <div>
                                 <h2 className="text-2xl font-bold text-slate-900">1. طبقة تحليل البيانات الجينومية</h2>
-                                <span className="text-sm font-mono text-slate-500">The Genomic Layer</span>
+                                <span className="text-sm font-mono text-slate-500">الطبقة الجينومية</span>
                             </div>
                         </div>
 
@@ -55,7 +55,7 @@ export default function TechSpecs() {
                             <div>
                                 <strong className="block text-slate-900 mb-2">التقنية</strong>
                                 <p className="text-slate-600 text-sm leading-relaxed">
-                                    نستخدم خوارزميات حساب <strong>"درجات المخاطر متعددة الجينات" (Polygenic Risk Scores - PRS)</strong>.
+                                    نستخدم خوارزميات حساب <strong>"درجات المخاطر متعددة الجينات" (PRS)</strong>.
                                 </p>
                             </div>
                             <div>
@@ -76,7 +76,7 @@ export default function TechSpecs() {
                             </div>
                             <div>
                                 <h2 className="text-2xl font-bold text-slate-900">2. طبقة الذكاء الاصطناعي التوليدي</h2>
-                                <span className="text-sm font-mono text-slate-500">The Agentic AI Layer</span>
+                                <span className="text-sm font-mono text-slate-500">طبقة الذكاء الاصطناعي الوكيل</span>
                             </div>
                         </div>
 
@@ -104,7 +104,7 @@ export default function TechSpecs() {
                             </div>
                             <div>
                                 <h2 className="text-2xl font-bold text-white">3. طبقة الامتثال والخصوصية</h2>
-                                <span className="text-sm font-mono text-slate-400">Privacy & Compliance Layer</span>
+                                <span className="text-sm font-mono text-slate-400">طبقة الخصوصية والامتثال</span>
                             </div>
                         </div>
 
@@ -112,16 +112,16 @@ export default function TechSpecs() {
                             <div>
                                 <div className="flex items-center gap-2 mb-2">
                                     <Server className="w-4 h-4 text-teal-400" />
-                                    <strong className="text-white">السيادة (Sovereignty)</strong>
+                                    <strong className="text-white">السيادة</strong>
                                 </div>
                                 <p className="text-slate-400 text-sm leading-relaxed">
-                                    استضافة البيانات كاملة داخل المملكة (Local Cloud Hosting) لضمان الامتثال لمتطلبات "سدايا".
+                                    استضافة البيانات كاملة داخل المملكة لضمان الامتثال لمتطلبات "سدايا".
                                 </p>
                             </div>
                             <div>
                                 <div className="flex items-center gap-2 mb-2">
                                     <Lock className="w-4 h-4 text-teal-400" />
-                                    <strong className="text-white">التعلم الموحد (Federated Learning)</strong>
+                                    <strong className="text-white">التعلم الموحد</strong>
                                 </div>
                                 <p className="text-slate-400 text-sm leading-relaxed">
                                     تدريب الذكاء الاصطناعي دون نقل البيانات الخام خارج خوادم المستشفى، مما يضمن سرية الهوية تماماً.

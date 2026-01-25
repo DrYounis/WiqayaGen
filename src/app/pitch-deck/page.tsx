@@ -41,7 +41,7 @@ export default function PitchDeck() {
             imageSrc: "/images/pitch-deck/slide-4.png",
             content: [
                 "تحليل PRS: حساب دقيق للمخاطر الوراثية.",
-                "AI Health Agent: مرافق صحي ذكي 24/7.",
+                "AI Health Agent: مرافق صحي ذكي.",
                 "Local & Secure: بيانات محمية 100% داخل المملكة."
             ]
         },
@@ -51,7 +51,7 @@ export default function PitchDeck() {
             content: [
                 "شركات التأمين: تقليل المطالبات بنسبة 15%.",
                 "المريض: حياة أطول بصحة أفضل.",
-                "WiqayaGen: رسوم اشتراك سنوي (SaaS) + رسوم التحليل."
+                "WiqayaGen: رسوم اشتراك سنوي + رسوم التحليل."
             ]
         },
         {
@@ -60,7 +60,7 @@ export default function PitchDeck() {
             content: [
                 "رؤية 2030: التركيز على الوقاية.",
                 "هيفولوشن: المملكة عاصمة لأبحاث إطالة العمر.",
-                "First Mover Advantage: لا منافس يدمج التأمين بالجينوم محلياً."
+                "ميزة المبادر الأول: لا منافس يدمج التأمين بالجينوم محلياً."
             ]
         },
         {
@@ -77,7 +77,7 @@ export default function PitchDeck() {
             imageSrc: "/images/pitch-deck/slide-8.png",
             content: [
                 "د. محمد يونس: طبيب عائلة + خبرة تأمينية.",
-                "فريق تقني متخصص في AI & Bioinformatics."
+                "فريق تقني متخصص في المعلوماتية الحيوية والذكاء الاصطناعي."
             ]
         }
     ];
@@ -117,7 +117,7 @@ export default function PitchDeck() {
                 </Link>
                 <div className="flex items-center gap-4">
                     <span className="text-slate-500 text-sm font-mono hidden md:inline-block">
-                        Slide {currentSlide + 1} / {slides.length}
+                        شريحة {currentSlide + 1} / {slides.length}
                     </span>
                     <Link href="/" className="flex items-center gap-2 text-slate-400 hover:text-white transition-colors text-sm font-medium border border-slate-800 rounded-full px-4 py-2 bg-slate-900/50 backdrop-blur-sm">
                         الخروج

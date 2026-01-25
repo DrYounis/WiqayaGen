@@ -129,7 +129,7 @@ export default function JoinWaitlist() {
                         <div className="w-3 h-3 bg-blue-500 rounded-full animate-bounce delay-100"></div>
                         <div className="w-3 h-3 bg-purple-500 rounded-full animate-bounce delay-200"></div>
                     </div>
-                    <span className="text-sm font-mono">Secure & Private GenAI Processing</span>
+                    <span className="text-sm font-mono">معالجة آمنة وخاصة بالذكاء التوليدي</span>
                 </div>
             </div>
 

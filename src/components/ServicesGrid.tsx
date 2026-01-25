@@ -20,7 +20,7 @@ export default function ServicesGrid() {
                     </button>
                 </div>
 
-                <h3 className="text-xl font-bold text-slate-900 mb-2">Wiqaya Score</h3>
+                <h3 className="text-xl font-bold text-slate-900 mb-2 font-sans">مؤشر وقاية</h3>
                 <p className="text-sm text-slate-500 mb-6 min-h-[40px]">
                     تنافس مع جيناتك. درجة صحية حية 0-100 تتزامن مع نشاطك اليومي.
                 </p>
@@ -32,13 +32,13 @@ export default function ServicesGrid() {
                         <div className="absolute inset-0 rounded-full border-8 border-teal-500 border-t-transparent border-l-transparent rotate-45"></div>
                         <div className="text-center">
                             <span className="block text-3xl font-bold text-slate-800">85</span>
-                            <span className="text-[10px] text-slate-400 uppercase">Excellent</span>
+                            <span className="text-[10px] text-slate-400 uppercase font-sans">ممتاز</span>
                         </div>
                     </div>
                 </div>
 
                 <button className="mt-auto w-full py-3 bg-slate-900 text-white rounded-xl hover:bg-slate-800 transition-colors flex items-center justify-center gap-2 text-sm font-bold">
-                    Start Competing <ArrowRight className="w-4 h-4" />
+                    ابدأ المنافسة <ArrowRight className="w-4 h-4 rotate-180" />
                 </button>
             </div>
 
@@ -52,7 +52,7 @@ export default function ServicesGrid() {
                     </div>
                 </div>
 
-                <h3 className="text-xl font-bold text-slate-900 mb-2">Gen-Halal Scanner</h3>
+                <h3 className="text-xl font-bold text-slate-900 mb-2 font-sans">ماسح جين-حلال</h3>
                 <p className="text-sm text-slate-500 mb-6 min-h-[40px]">
                     صور، واكتشف. هل هذا التمر مناسب لجيناتك؟ تنبيهات فورية للسكر.
                 </p>
@@ -72,12 +72,12 @@ export default function ServicesGrid() {
                     </div>
                     <div className="bg-green-500/20 px-4 py-2 rounded-full backdrop-blur-md border border-green-500/50 text-green-400 text-xs font-bold flex items-center gap-2">
                         <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                        DNA Safe
+                        آمن جينياً
                     </div>
                 </div>
 
                 <button className="mt-auto w-full py-3 bg-emerald-600 text-white rounded-xl hover:bg-emerald-700 transition-colors flex items-center justify-center gap-2 text-sm font-bold">
-                    Scan Product <ArrowRight className="w-4 h-4" />
+                    افحص المنتج <ArrowRight className="w-4 h-4 rotate-180" />
                 </button>
             </div>
 
@@ -91,7 +91,7 @@ export default function ServicesGrid() {
                     </div>
                 </div>
 
-                <h3 className="text-xl font-bold text-slate-900 mb-2">Family Legacy</h3>
+                <h3 className="text-xl font-bold text-slate-900 mb-2 font-sans">الإرث العائلي</h3>
                 <p className="text-sm text-slate-500 mb-6 min-h-[40px]">
                     احمِ مستقبلك ومستقبلهم. خريطة وراثية تعاونية لتتبع المخاطر العائلية.
                 </p>
@@ -117,7 +117,7 @@ export default function ServicesGrid() {
                 </div>
 
                 <button className="mt-auto w-full py-3 bg-indigo-600 text-white rounded-xl hover:bg-indigo-700 transition-colors flex items-center justify-center gap-2 text-sm font-bold">
-                    Map Family <ArrowRight className="w-4 h-4" />
+                    ارسم العائلة <ArrowRight className="w-4 h-4 rotate-180" />
                 </button>
             </div>
 

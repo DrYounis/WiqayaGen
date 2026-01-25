@@ -55,7 +55,7 @@ export default function ExecutiveSummary() {
                             </div>
                         </div>
                         <p className="text-slate-600 leading-relaxed text-lg">
-                            شركات التأمين الطبي في المملكة تعاني من ارتفاع <strong className="text-slate-900">"نسبة الخسارة" (Loss Ratio)</strong> بسبب الأمراض المزمنة (سكري، قلب، ضغط) التي يتم اكتشافها وعلاجها متأخراً. النموذج الحالي للتأمين "تفاعلي" (Reactive) يدفع تكلفة العلاج، ولا يملك أدوات "تنبؤية" (Predictive) لمنع المرض قبل وقوعه، مما يؤدي لاستنزاف المحافظ التأمينية.
+                            شركات التأمين الطبي في المملكة تعاني من ارتفاع <strong className="text-slate-900">"نسبة الخسارة"</strong> بسبب الأمراض المزمنة (سكري، قلب، ضغط) التي يتم اكتشافها وعلاجها متأخراً. النموذج الحالي للتأمين "تفاعلي" يدفع تكلفة العلاج، ولا يملك أدوات "تنبؤية" لمنع المرض قبل وقوعه، مما يؤدي لاستنزاف المحافظ التأمينية.
                         </p>
                     </section>
 
@@ -67,7 +67,7 @@ export default function ExecutiveSummary() {
                             </div>
                             <div>
                                 <h2 className="text-2xl font-bold text-slate-900 mb-2">2. الحل المقترح</h2>
-                                <h3 className="text-lg text-slate-500 font-medium mb-4">The Innovation</h3>
+                                <h3 className="text-lg text-slate-500 font-medium mb-4">الابتكار</h3>
                             </div>
                         </div>
                         <p className="text-slate-600 mb-6 leading-relaxed">
@@ -84,15 +84,15 @@ export default function ExecutiveSummary() {
                             <li className="flex gap-3">
                                 <span className="w-6 h-6 rounded-full bg-blue-200 text-blue-700 flex items-center justify-center text-sm font-bold shrink-0 mt-1">2</span>
                                 <div>
-                                    <strong className="block text-slate-900 mb-1">التدخل الشخصي (AI Agent)</strong>
-                                    <p className="text-slate-600">مساعد صحي ذكي (Health Coach) يقدم خططاً "فائقة التخصيص" (تغذية، مكملات، نمط حياة) بناءً على جينات الفرد.</p>
+                                    <strong className="block text-slate-900 mb-1">المساعد الصحي الذكي</strong>
+                                    <p className="text-slate-600">وكيل صحي ذكي يقدم خططاً "فائقة التخصيص" (تغذية، مكملات، نمط حياة) بناءً على جينات الفرد.</p>
                                 </div>
                             </li>
                             <li className="flex gap-3">
                                 <span className="w-6 h-6 rounded-full bg-blue-200 text-blue-700 flex items-center justify-center text-sm font-bold shrink-0 mt-1">3</span>
                                 <div>
                                     <strong className="block text-slate-900 mb-1">نظام الحوافز التأمينية</strong>
-                                    <p className="text-slate-600">ربط الالتزام بالخطة الصحية بخصومات على تجديد البوليصة أو نقاط ولاء (Dynamic Pricing Model).</p>
+                                    <p className="text-slate-600">ربط الالتزام بالخطة الصحية بخصومات على تجديد البوليصة أو نقاط ولاء.</p>
                                 </div>
                             </li>
                         </ul>
@@ -114,11 +114,11 @@ export default function ExecutiveSummary() {
                             </div>
                             <div className="bg-slate-50 p-6 rounded-2xl">
                                 <h4 className="font-bold text-slate-900 mb-2">للمريض</h4>
-                                <p className="text-slate-600 text-sm leading-relaxed">إطالة "العمر الصحي" (Healthspan)، وتلقي رعاية وقائية مخصصة.</p>
+                                <p className="text-slate-600 text-sm leading-relaxed">إطالة "العمر الصحي"، وتلقي رعاية وقائية مخصصة.</p>
                             </div>
                             <div className="bg-slate-50 p-6 rounded-2xl">
                                 <h4 className="font-bold text-slate-900 mb-2">للقطاع الصحي</h4>
-                                <p className="text-slate-600 text-sm leading-relaxed">التحول نحو نموذج الرعاية القائمة على القيمة (Value-Based Healthcare) ومواكبة رؤية 2030.</p>
+                                <p className="text-slate-600 text-sm leading-relaxed">التحول نحو نموذج الرعاية القائمة على القيمة ومواكبة رؤية 2030.</p>
                             </div>
                         </div>
                     </section>
@@ -134,7 +134,7 @@ export default function ExecutiveSummary() {
                         <div className="flex flex-col md:flex-row gap-8">
                             <div className="flex-1 border-r-0 md:border-r border-slate-100 md:pr-8 last:border-0">
                                 <strong className="block text-lg text-slate-900 mb-2">B2B2C</strong>
-                                <p className="text-slate-600">التعاقد مع شركات التأمين لتقديم الخدمة كـ "Add-on" للفئات الذهبية أو الفئات عالية الخطورة (High-Risk Groups).</p>
+                                <p className="text-slate-600">التعاقد مع شركات التأمين لتقديم الخدمة كـ "إضافة" للفئات الذهبية أو الفئات عالية الخطورة.</p>
                             </div>
                             <div className="flex-1">
                                 <strong className="block text-lg text-slate-900 mb-2">الاشتراكات</strong>
@@ -173,7 +173,7 @@ export default function ExecutiveSummary() {
                             <div className="space-y-4">
                                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 p-4 rounded-xl">
                                     <strong className="block text-teal-400 mb-1">الخصوصية وعدم التمييز</strong>
-                                    <p className="text-blue-100">آليات استخدام البيانات الجينومية في تحسين برامج الوقاية دون انتهاك خصوصية المريض أو التمييز في التسعير (Genetic Discrimination).</p>
+                                    <p className="text-blue-100">آليات استخدام البيانات الجينومية في تحسين برامج الوقاية دون انتهاك خصوصية المريض أو التمييز في التسعير.</p>
                                 </div>
                                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 p-4 rounded-xl">
                                     <strong className="block text-teal-400 mb-1">التكامل التقني (NPHIES)</strong>
