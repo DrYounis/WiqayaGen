@@ -9,7 +9,7 @@ export default function PitchDeck() {
 
     const slides = [
         {
-            title: "1. الغلاف (The Hook)",
+            title: "الانطلاقة (The Hook)",
             imageSrc: "/images/pitch-deck/slide-1.png",
             content: [
                 "العنوان: WiqayaGen | وقاية جين",
@@ -18,7 +18,7 @@ export default function PitchDeck() {
             ]
         },
         {
-            title: "2. المشكلة (The Money Leak)",
+            title: "المشكلة (The Problem)",
             imageSrc: "/images/pitch-deck/slide-2.png",
             content: [
                 "التأمين اليوم يدفع لـ \"الحريق\" بدلاً من منعه.",
@@ -28,7 +28,7 @@ export default function PitchDeck() {
             ]
         },
         {
-            title: "3. الحل (The Solution)",
+            title: "الحل (The Solution)",
             imageSrc: "/images/pitch-deck/slide-3.png",
             content: [
                 "الذكاء الجينومي كأداة لإدارة المخاطر.",
@@ -37,7 +37,7 @@ export default function PitchDeck() {
             ]
         },
         {
-            title: "4. التقنية (The Secret Sauce)",
+            title: "التقنية (The Technology)",
             imageSrc: "/images/pitch-deck/slide-4.png",
             content: [
                 "تحليل PRS: حساب دقيق للمخاطر الوراثية.",
@@ -46,7 +46,7 @@ export default function PitchDeck() {
             ]
         },
         {
-            title: "5. نموذج العمل (Business Model)",
+            title: "نموذج العمل (Business Model)",
             imageSrc: "/images/pitch-deck/slide-5.png",
             content: [
                 "شركات التأمين: تقليل المطالبات بنسبة 15%.",
@@ -55,7 +55,7 @@ export default function PitchDeck() {
             ]
         },
         {
-            title: "6. السوق والمنافسة",
+            title: "السوق (The Market)",
             imageSrc: "/images/pitch-deck/slide-6.png",
             content: [
                 "رؤية 2030: التركيز على الوقاية.",
@@ -64,7 +64,7 @@ export default function PitchDeck() {
             ]
         },
         {
-            title: "7. الطلب (The Ask)",
+            title: "المطلوب (The Ask)",
             imageSrc: "/images/pitch-deck/slide-7.png",
             content: [
                 "نطلب شراكة تشريعية (Sandbox) في \"إبصار\".",
@@ -73,7 +73,7 @@ export default function PitchDeck() {
             ]
         },
         {
-            title: "8. الفريق (The Team)",
+            title: "الفريق (The Team)",
             imageSrc: "/images/pitch-deck/slide-8.png",
             content: [
                 "د. محمد يونس: طبيب عائلة + خبرة تأمينية.",
