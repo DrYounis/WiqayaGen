@@ -1,36 +1,89 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# WiqayaGen | وقاية جين 🧬
 
-## Getting Started
+**"Your Health Lies in Your DNA"**
+**"صحتك تكمن في حمضك النووي"**
 
-First, run the development server:
+WiqayaGen is Saudi Arabia's first AI-powered genomic health platform, designed to shift healthcare from "sick care" to **precision prevention**. It integrates genomic data (Polygenic Risk Scores) with generative AI to provide hyper-personalized health plans, aligning with Saudi Vision 2030's healthcare transformation goals.
+
+![WiqayaGen Screenshot](public/images/platform-preview.png)
+
+## 🚀 Key Features
+
+*   **Arabic-First UI**: Fully localized interface (`rtl`) tailored for the Saudi market.
+*   **Wiqaya Score (مؤشر وقاية)**: Gamified health score (0-100) comparing users to the national average.
+*   **Gen-Halal Scanner (ماسح جين-حلال)**: Privacy-preserving AI scanner that analyzes food for genetic compatibility (e.g., "Is this date fruit safe for my TCF7L2 gene?").
+*   **Family Legacy (الإرث العائلي)**: Collaborative family tree builder to track and prevent hereditary risks.
+*   **Health Pulse (نبض وقاية)**: AI-curated news feed covering Saudi genomic advancements (news ticker).
+*   **Nafath Integration**: Simulated secure login flow using the National Single Sign-On (Nafath).
+
+## 🛠️ Tech Stack
+
+*   **Framework**: [Next.js 16](https://nextjs.org/) (App Router)
+*   **Language**: TypeScript
+*   **Styling**: Tailwind CSS
+*   **Animations**: Framer Motion
+*   **Icons**: Lucide React
+*   **Deployment**: Vercel
+
+## 📂 Project Structure
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+wiqaya_gen/
+├── src/
+│   ├── app/
+│   │   ├── page.tsx               # Homepage (Hero, Services, Pulse, Map)
+│   │   ├── layout.tsx             # Root Layout (Theme, Fonts, Metadata)
+│   │   ├── join-waitlist/         # Registration Wizard with Nafath
+│   │   ├── executive-summary/     # Investor Deck (Markdown-style)
+│   │   ├── tech-specs/            # Technical Documentation Page
+│   │   └── pitch-deck/            # Interactive Pitch Deck Slides
+│   ├── components/
+│   │   ├── ServicesGrid.tsx       # Core Interactive Cards (Score, Scanner, Family)
+│   │   ├── ServiceModal.tsx       # Reusable Modal for Interactive Demos
+│   │   ├── SaudiHealthMap.tsx     # DNA Map Visualization
+│   │   ├── HealthPulse.tsx        # News Ticker Component
+│   │   └── NafathLoginBtn.tsx     # Custom Nafath Button
+│   └── services/
+│       └── newsService.ts         # Mock Data for Health Pulse
+├── public/
+│   └── images/                    # Static Assets
+└── ...config files (tailwind, next, etc.)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ⚡ Getting Started
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/DrYounis/WiqayaGen.git
+    cd WiqayaGen
+    ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2.  **Install dependencies:**
+    ```bash
+    npm install
+    ```
 
-## Learn More
+3.  **Run the development server:**
+    ```bash
+    npm run dev
+    ```
 
-To learn more about Next.js, take a look at the following resources:
+4.  **Open locally:**
+    Navigate to [http://localhost:3000](http://localhost:3000).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🧪 Verification & Demos
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The platform includes interactive "Freemium" demos to showcase value:
+*   **Click "Start Competition"**: To see the Live Health Graph.
+*   **Click "Scan Product"**: To see the AI Camera Simulation.
+*   **Click "Draw Family"**: To see the Hereditary Risk Alert.
 
-## Deploy on Vercel
+All demos lead to the **Waitlist** with specific plan parameters (`?plan=premium`, `?plan=nutrition`, `?plan=family`) for tracking user intent.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📦 Deployment
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is optimized for deployment on **Vercel**.
+Pushes to the `main` branch automatically trigger a new build.
+
+---
+**Developed by [Your Team Name]** for the **Ibsar Accelerator**.
