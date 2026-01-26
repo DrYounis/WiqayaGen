@@ -43,7 +43,7 @@ export default function ServicesGrid() {
                 <div className="bg-slate-50 rounded-2xl p-6 flex items-center justify-center mb-6 border border-slate-100">
                     <div className="relative w-32 h-32 flex items-center justify-center">
                         <div className="absolute inset-0 rounded-full border-8 border-slate-200"></div>
-                        <div className="absolute inset-0 rounded-full border-8 border-teal-500 border-t-transparent border-l-transparent rotate-45"></div>
+                        <div className="absolute inset-0 rounded-full border-8 border-teal-500 border-t-transparent border-l-transparent animate-[spin_3s_linear_infinite]"></div>
                         <div className="text-center">
                             <span className="block text-3xl font-bold text-slate-800">85</span>
                             <span className="text-[10px] text-slate-400 uppercase font-sans">ممتاز</span>
