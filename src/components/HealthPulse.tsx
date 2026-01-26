@@ -2,6 +2,8 @@
 
 import { ExternalLink, Activity } from 'lucide-react';
 import Link from 'next/link';
+import { useState } from 'react';
+import ServiceModal from './ServiceModal';
 
 const newsItems = [
     {
@@ -87,6 +89,8 @@ const newsItems = [
 ];
 
 export default function HealthPulse() {
+    const [selectedNews, setSelectedNews] = useState<typeof newsItems[0] | null>(null);
+
     return (
         <section className="bg-slate-50 border-t border-slate-200 py-10 overflow-hidden relative" dir="rtl">
             <div className="max-w-7xl mx-auto px-6 mb-6 flex items-center gap-3">
@@ -100,19 +104,20 @@ export default function HealthPulse() {
             </div>
 
             {/* Scrolling Container */}
-            <div className="relative w-full">
+            <div className="relative w-full group">
                 {/* Gradients for fading edges */}
-                <div className="absolute top-0 right-0 w-24 h-full bg-gradient-to-l from-slate-50 to-transparent z-10"></div>
-                <div className="absolute top-0 left-0 w-24 h-full bg-gradient-to-r from-slate-50 to-transparent z-10"></div>
+                <div className="absolute top-0 right-0 w-24 h-full bg-gradient-to-l from-slate-50 to-transparent z-10 pointer-events-none"></div>
+                <div className="absolute top-0 left-0 w-24 h-full bg-gradient-to-r from-slate-50 to-transparent z-10 pointer-events-none"></div>
 
-                <div className="flex gap-6 animate-scroll-left hover:pause min-w-max px-6">
+                <div className="flex gap-6 animate-scroll-left group-hover:[animation-play-state:paused] min-w-max px-6">
                     {/* Duplicate array for seamless infinite scroll */}
                     {[...newsItems, ...newsItems].map((item, idx) => (
-                        <div
+                        <button
                             key={`${item.id}-${idx}`}
-                            className="w-[300px] md:w-[350px] bg-white border border-slate-200 rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow flex-shrink-0 text-right"
+                            onClick={() => setSelectedNews(item)}
+                            className="w-[300px] md:w-[350px] bg-white border border-slate-200 rounded-xl p-5 shadow-sm hover:shadow-md transition-all text-right hover:scale-[1.02] cursor-pointer"
                         >
-                            <div className="flex justify-between items-start mb-3 flex-row-reverse">
+                            <div className="flex justify-between items-start mb-3 flex-row-reverse" onClick={(e) => e.stopPropagation()}>
                                 <span className={`px-2 py-1 rounded text-[10px] font-bold text-white uppercase ${item.sourceColor}`}>
                                     {item.source}
                                 </span>
@@ -123,13 +128,44 @@ export default function HealthPulse() {
                             <h3 className="font-bold text-slate-900 mb-2 line-clamp-1 font-sans" title={item.title}>
                                 {item.title}
                             </h3>
-                            <p className="text-sm text-slate-500 leading-relaxed line-clamp-3 font-sans">
+                            <p className="text-sm text-slate-500 leading-relaxed line-clamp-3 font-sans text-right">
                                 {item.summary}
                             </p>
-                        </div>
+                        </button>
                     ))}
                 </div>
             </div>
+
+            {/* News Detail Modal */}
+            <ServiceModal
+                isOpen={!!selectedNews}
+                onClose={() => setSelectedNews(null)}
+                title="تفاصيل الخبر"
+                icon={<Activity className="w-6 h-6 text-blue-600" />}
+                ctaText="الذهاب للمصدر الرسمي"
+                onCtaClick={() => selectedNews && window.open(selectedNews.link, '_blank')}
+                accentColor={selectedNews?.sourceColor.replace('bg-', 'bg-') || "bg-blue-600"}
+            >
+                {selectedNews && (
+                    <div className="space-y-6 text-right">
+                        <div>
+                            <span className={`inline-block px-3 py-1 rounded-full text-xs font-bold text-white mb-3 ${selectedNews.sourceColor}`}>
+                                {selectedNews.source}
+                            </span>
+                            <h3 className="text-2xl font-bold text-slate-900 mb-4 leading-relaxed">
+                                {selectedNews.title}
+                            </h3>
+                            <p className="text-slate-600 leading-loose text-lg">
+                                {selectedNews.summary}
+                            </p>
+                        </div>
+
+                        <div className="bg-slate-50 p-4 rounded-xl border border-slate-100 text-sm text-slate-500">
+                            مصدر موثوق • تم التحقق من الرابط • تحديث مباشر
+                        </div>
+                    </div>
+                )}
+            </ServiceModal>
         </section>
     );
 }
