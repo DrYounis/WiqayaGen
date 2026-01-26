@@ -105,14 +105,6 @@ export default function HealthPulse() {
                 <div className="absolute top-0 right-0 w-24 h-full bg-gradient-to-l from-slate-50 to-transparent z-10"></div>
                 <div className="absolute top-0 left-0 w-24 h-full bg-gradient-to-r from-slate-50 to-transparent z-10"></div>
 
-                {/* Using flex-row-reverse or changing animation direction for RTL if needed, but simple scrolling left is fine usually. 
-                    However, for Arabic ticker, it usually scrolls Right to Left (content moves right).
-                    Let's stick to the existing animation but maybe flip direction if it feels wrong.
-                    Actually, scrolling tickers usually move content *from* one side *to* the other.
-                    Left-to-Right reading: Text moves Right-to-Left.
-                    Right-to-Left reading: Text moves Left-to-Right?
-                    Let's keep standard ticker motion (Right to Left) for now as it's standard for breaking news even in Arabic TV.
-                */}
                 <div className="flex gap-6 animate-scroll-left hover:pause min-w-max px-6">
                     {/* Duplicate array for seamless infinite scroll */}
                     {[...newsItems, ...newsItems].map((item, idx) => (

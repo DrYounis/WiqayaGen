@@ -7,8 +7,12 @@ import ServiceModal from './ServiceModal';
 
 export default function ServicesGrid() {
     const [activeModal, setActiveModal] = useState<string | null>(null);
+    const [familyStep, setFamilyStep] = useState(0);
 
-    const openModal = (service: string) => setActiveModal(service);
+    const openModal = (service: string) => {
+        setActiveModal(service);
+        setFamilyStep(0); // Reset family step on open
+    };
     const closeModal = () => setActiveModal(null);
 
     return (
@@ -61,7 +65,7 @@ export default function ServicesGrid() {
                     </div>
                 </div>
 
-                <h3 className="text-xl font-bold text-slate-900 mb-2 font-sans">ماسح جين-حلال</h3>
+                <h3 className="text-xl font-bold text-slate-900 mb-2 font-sans">ماسح جيني آمن</h3>
                 <p className="text-sm text-slate-500 mb-6 min-h-[40px]">
                     صور، واكتشف. هل هذا التمر مناسب لجيناتك؟ تنبيهات فورية للسكر.
                 </p>
@@ -180,7 +184,7 @@ export default function ServicesGrid() {
             <ServiceModal
                 isOpen={activeModal === 'scanner'}
                 onClose={closeModal}
-                title="ماسح جين-حلال الذكي"
+                title="ماسح جيني آمن"
                 icon={<ScanLine className="w-6 h-6 text-green-600" />}
                 ctaText="احصل على دليلك الغذائي الجيني"
                 onCtaClick={() => window.location.href = '/join-waitlist?plan=nutrition'}
@@ -217,46 +221,111 @@ export default function ServicesGrid() {
 
             <ServiceModal
                 isOpen={activeModal === 'family'}
-                onClose={closeModal}
+                onClose={() => { closeModal(); setFamilyStep(0); }}
                 title="بناء الإرث العائلي"
                 icon={<Users className="w-6 h-6 text-indigo-600" />}
-                ctaText="تأمين العائلة (خصم 40% للمجموعات)"
-                onCtaClick={() => window.location.href = '/join-waitlist?plan=family'}
+                ctaText={familyStep === 3 ? "احصل على التقرير الوراثي الكامل" : "أكمل التحليل"}
+                onCtaClick={() => {
+                    if (familyStep === 3) window.location.href = '/join-waitlist?plan=family';
+                }}
                 accentColor="bg-indigo-600"
             >
-                <div className="space-y-6 text-center">
-                    <div className="relative h-48 border border-dashed border-slate-300 rounded-2xl bg-slate-50 flex items-center justify-center">
-                        <div className="flex flex-col items-center">
-                            <div className="flex gap-8 mb-4">
-                                <div className="flex flex-col items-center gap-1 opacity-50">
-                                    <div className="w-10 h-10 rounded-full bg-slate-300"></div>
-                                    <div className="w-16 h-2 bg-slate-200 rounded"></div>
-                                </div>
-                                <div className="flex flex-col items-center gap-1">
-                                    <div className="w-12 h-12 rounded-full bg-indigo-100 border-2 border-indigo-500 flex items-center justify-center text-indigo-700 font-bold text-lg">أنت</div>
-                                    <div className="px-2 py-0.5 bg-indigo-100 text-indigo-700 text-[10px] rounded leading-none">المؤسس</div>
-                                </div>
-                                <div className="flex flex-col items-center gap-1 cursor-pointer hover:opacity-100 transition-opacity group">
-                                    <div className="w-10 h-10 rounded-full border-2 border-dashed border-slate-400 flex items-center justify-center text-slate-400 group-hover:border-indigo-500 group-hover:text-indigo-500 bg-white">
-                                        +
-                                    </div>
-                                    <span className="text-[10px] text-slate-400 group-hover:text-indigo-600">أضف عضو</span>
-                                </div>
+                {familyStep === 0 && (
+                    <div className="space-y-6 text-center animate-in fade-in slide-in-from-bottom-4 duration-500">
+                        <div className="flex justify-center mb-4">
+                            <div className="p-4 bg-indigo-50 rounded-full">
+                                <Activity className="w-8 h-8 text-indigo-600" />
                             </div>
-                            <p className="text-xs text-slate-400">ابدأ برسم شجرة العائلة الصحية</p>
+                        </div>
+                        <h3 className="text-lg font-bold text-slate-800">هل يعاني أحد أفراد العائلة من الدرجة الأولى من السكري؟</h3>
+                        <div className="flex gap-4 justify-center mt-6">
+                            <button
+                                onClick={() => setFamilyStep(1)}
+                                className="px-8 py-3 bg-red-50 text-red-600 border border-red-200 rounded-xl hover:bg-red-100 font-bold transition-colors"
+                            >
+                                نعم
+                            </button>
+                            <button
+                                onClick={() => setFamilyStep(2)}
+                                className="px-8 py-3 bg-slate-50 text-slate-600 border border-slate-200 rounded-xl hover:bg-slate-100 font-bold transition-colors"
+                            >
+                                لا
+                            </button>
                         </div>
                     </div>
+                )}
 
-                    <div className="bg-amber-50 border border-amber-100 rounded-xl p-4 text-right">
-                        <div className="flex items-center gap-2 mb-2">
-                            <AlertTriangle className="w-4 h-4 text-amber-600" />
-                            <strong className="text-amber-900 text-sm">تم رصد نمط وراثي محتمل</strong>
+                {familyStep === 1 && (
+                    <div className="space-y-6 text-center animate-in fade-in slide-in-from-bottom-4 duration-500">
+                        <div className="flex justify-center mb-4">
+                            <div className="p-4 bg-amber-50 rounded-full">
+                                <AlertTriangle className="w-8 h-8 text-amber-600" />
+                            </div>
                         </div>
-                        <p className="text-amber-800/80 text-xs leading-relaxed">
-                            تاريخ العائلة يشير إلى احتمالية وجود "جينات صامتة" لارتفاع ضغط الدم. إضافة المزيد من الأقارب سيزيد دقة التنبؤ بنسبة 40%.
-                        </p>
+                        <h3 className="text-lg font-bold text-slate-800">هل تم تشخيص الحالة قبل سن الخمسين؟</h3>
+                        <div className="flex gap-4 justify-center mt-6">
+                            <button
+                                onClick={() => setFamilyStep(3)} // High Risk Path
+                                className="px-8 py-3 bg-red-50 text-red-600 border border-red-200 rounded-xl hover:bg-red-100 font-bold transition-colors"
+                            >
+                                نعم
+                            </button>
+                            <button
+                                onClick={() => setFamilyStep(3)} // Moderate Path (simulated same end for demo)
+                                className="px-8 py-3 bg-slate-50 text-slate-600 border border-slate-200 rounded-xl hover:bg-slate-100 font-bold transition-colors"
+                            >
+                                لا (بعد الـ 50)
+                            </button>
+                        </div>
                     </div>
-                </div>
+                )}
+
+                {familyStep === 2 && (
+                    <div className="space-y-6 text-center animate-in fade-in slide-in-from-bottom-4 duration-500">
+                        <div className="flex justify-center mb-4">
+                            <div className="p-4 bg-blue-50 rounded-full">
+                                <Activity className="w-8 h-8 text-blue-600" />
+                            </div>
+                        </div>
+                        <h3 className="text-lg font-bold text-slate-800">هل هناك تاريخ لأمراض القلب أو الضغط؟</h3>
+                        <div className="flex gap-4 justify-center mt-6">
+                            <button
+                                onClick={() => setFamilyStep(3)}
+                                className="px-8 py-3 bg-red-50 text-red-600 border border-red-200 rounded-xl hover:bg-red-100 font-bold transition-colors"
+                            >
+                                نعم
+                            </button>
+                            <button
+                                onClick={() => setFamilyStep(3)}
+                                className="px-8 py-3 bg-slate-50 text-slate-600 border border-slate-200 rounded-xl hover:bg-slate-100 font-bold transition-colors"
+                            >
+                                لا
+                            </button>
+                        </div>
+                    </div>
+                )}
+
+                {familyStep === 3 && (
+                    <div className="space-y-6 text-center animate-in fade-in zoom-in duration-500">
+                        <div className="bg-red-50 border border-red-100 rounded-2xl p-6 relative overflow-hidden">
+                            <div className="absolute top-0 right-0 w-20 h-20 bg-red-500/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+                            <div className="flex items-center gap-2 mb-4 justify-center text-red-700">
+                                <AlertTriangle className="w-6 h-6" />
+                                <strong className="text-lg">تم رصد نمط وراثي عالي الخطورة</strong>
+                            </div>
+                            <p className="text-red-800/80 text-sm leading-relaxed mb-4">
+                                إجاباتك تشير إلى احتمالية وجود عامل وراثي سائد بنسبة 40%. يجب تتبع شجرة العائلة الكاملة لتحديد "حاملي الجين".
+                            </p>
+                            <div className="w-full bg-slate-200 rounded-full h-2 mb-2">
+                                <div className="bg-red-500 h-2 rounded-full" style={{ width: '85%' }}></div>
+                            </div>
+                            <div className="flex justify-between text-xs text-slate-500 font-mono">
+                                <span>مستوى الخطر</span>
+                                <span className="text-red-600 font-bold">مرتفع جداً</span>
+                            </div>
+                        </div>
+                    </div>
+                )}
             </ServiceModal>
         </div>
     );
