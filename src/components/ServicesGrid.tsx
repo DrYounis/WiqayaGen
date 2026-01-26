@@ -248,9 +248,9 @@ export default function ServicesGrid() {
                 onClose={() => { closeModal(); setFamilyStep(0); }}
                 title="بناء الإرث العائلي"
                 icon={<Users className="w-6 h-6 text-indigo-600" />}
-                ctaText={familyStep === 3 ? "احصل على التقرير الوراثي الكامل" : "أكمل التحليل"}
+                ctaText={(familyStep === 3 || familyStep === 4) ? "احصل على التقرير الوراثي الكامل" : "أكمل التحليل"}
                 onCtaClick={() => {
-                    if (familyStep === 3) window.location.href = '/join-waitlist?plan=family';
+                    if (familyStep === 3 || familyStep === 4) window.location.href = '/join-waitlist?plan=family';
                 }}
                 accentColor="bg-indigo-600"
             >
@@ -295,7 +295,7 @@ export default function ServicesGrid() {
                                 نعم
                             </button>
                             <button
-                                onClick={() => setFamilyStep(3)} // Moderate Path (simulated same end for demo)
+                                onClick={() => setFamilyStep(4)} // Moderate Risk Path
                                 className="px-8 py-3 bg-slate-50 text-slate-600 border border-slate-200 rounded-xl hover:bg-slate-100 font-bold transition-colors"
                             >
                                 لا (بعد الـ 50)
@@ -314,13 +314,13 @@ export default function ServicesGrid() {
                         <h3 className="text-lg font-bold text-slate-800">هل هناك تاريخ لأمراض القلب أو الضغط؟</h3>
                         <div className="flex gap-4 justify-center mt-6">
                             <button
-                                onClick={() => setFamilyStep(3)}
+                                onClick={() => setFamilyStep(3)} // High Risk
                                 className="px-8 py-3 bg-red-50 text-red-600 border border-red-200 rounded-xl hover:bg-red-100 font-bold transition-colors"
                             >
                                 نعم
                             </button>
                             <button
-                                onClick={() => setFamilyStep(3)}
+                                onClick={() => setFamilyStep(4)} // Low Risk
                                 className="px-8 py-3 bg-slate-50 text-slate-600 border border-slate-200 rounded-xl hover:bg-slate-100 font-bold transition-colors"
                             >
                                 لا
@@ -367,6 +367,49 @@ export default function ServicesGrid() {
                             <div className="flex items-center justify-center gap-1.5 bg-red-100/50 py-1.5 rounded text-[10px] text-red-800">
                                 <FileText className="w-3 h-3" />
                                 <span>موثوق حسب الأدلة السريرية السعودية (MOH)</span>
+                            </div>
+                        </div>
+                    </div>
+                )}
+
+                {familyStep === 4 && (
+                    <div className="space-y-6 text-center animate-in fade-in zoom-in duration-500">
+                        <div className="bg-green-50 border border-green-100 rounded-2xl p-6 relative overflow-hidden text-right">
+                            {/* Header */}
+                            <div className="flex items-center gap-2 mb-4 text-green-700 border-b border-green-100 pb-3">
+                                <ShieldCheck className="w-6 h-6" />
+                                <strong className="text-lg">تقرير السلامة الوراثية</strong>
+                            </div>
+
+                            {/* Positive Indicators */}
+                            <div className="bg-white/50 rounded-lg p-3 mb-4 space-y-2">
+                                <p className="text-xs font-bold text-slate-700 mb-2">المؤشرات الإيجابية:</p>
+                                <div className="flex items-center gap-2 text-xs text-slate-600">
+                                    <div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div>
+                                    <span>سجل عائلي نظيف (أقارب درجة أولى)</span>
+                                </div>
+                                <div className="flex items-center gap-2 text-xs text-slate-600">
+                                    <div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div>
+                                    <span>مؤشرات نمط الحياة مستقرة</span>
+                                </div>
+                            </div>
+
+                            <p className="text-green-800/80 text-xs leading-relaxed mb-4">
+                                النمط الوراثي يبدو مستقراً، ولكن "الجينات الصامتة" قد تظهر لاحقاً. الفحص الوقائي يضمن البقاء في المنطقة الآمنة.
+                            </p>
+
+                            <div className="w-full bg-slate-200 rounded-full h-2 mb-2">
+                                <div className="bg-green-500 h-2 rounded-full" style={{ width: '15%' }}></div>
+                            </div>
+                            <div className="flex justify-between text-xs text-slate-500 font-mono mb-4">
+                                <span>مستوى الخطر</span>
+                                <span className="text-green-600 font-bold">منخفض (15/100)</span>
+                            </div>
+
+                            {/* Trust Badge */}
+                            <div className="flex items-center justify-center gap-1.5 bg-green-100/50 py-1.5 rounded text-[10px] text-green-800">
+                                <FileText className="w-3 h-3" />
+                                <span>مطابق للمعايير الوقائية الوطنية</span>
                             </div>
                         </div>
                     </div>
