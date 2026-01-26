@@ -8,10 +8,14 @@ import ServiceModal from './ServiceModal';
 export default function ServicesGrid() {
     const [activeModal, setActiveModal] = useState<string | null>(null);
     const [familyStep, setFamilyStep] = useState(0);
+    const [scoreStep, setScoreStep] = useState(0);
+    const [userScore, setUserScore] = useState(0);
 
     const openModal = (service: string) => {
         setActiveModal(service);
-        setFamilyStep(0); // Reset family step on open
+        setFamilyStep(0);
+        setScoreStep(0);
+        setUserScore(0);
     };
     const closeModal = () => setActiveModal(null);
 
@@ -141,49 +145,160 @@ export default function ServicesGrid() {
             <ServiceModal
                 isOpen={activeModal === 'score'}
                 onClose={closeModal}
-                title="مؤشر وقاية الحي"
+                title={scoreStep < 6 ? `فحص المؤشر الحيوي (${scoreStep}/5)` : "نتيجة مؤشر وقاية"}
                 icon={<Activity className="w-6 h-6 text-teal-600" />}
-                ctaText="تفعيل التحليل الكامل (مجاناً لمدة 7 أيام)"
-                onCtaClick={() => window.location.href = '/join-waitlist?plan=premium'}
+                ctaText={scoreStep < 6 ? "التالي" : "تفعيل التحليل الكامل (مجاناً لمدة 7 أيام)"}
+                onCtaClick={() => {
+                    if (scoreStep < 6) return; // CTA hidden/disabled in wizard, handled by option buttons
+                    window.location.href = '/join-waitlist?plan=premium';
+                }}
                 accentColor="bg-teal-600"
             >
-                <div className="space-y-6 text-center">
-                    <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6">
-                        <p className="text-slate-500 text-sm mb-4">نشاطك الجيني اليوم</p>
-                        <div className="flex items-end justify-center gap-2 h-32 pb-2">
-                            {[40, 65, 45, 80, 55, 90, 70].map((h, i) => (
-                                <div key={i} className="w-8 bg-teal-100 rounded-t-sm relative group h-full">
-                                    <div
-                                        style={{ height: `${h}%` }}
-                                        className="w-full bg-teal-500 absolute bottom-0 rounded-t-sm transition-all duration-500 group-hover:bg-teal-600"
-                                    ></div>
-                                </div>
-                            ))}
+                {/* Intro / Start */}
+                {scoreStep === 0 && (
+                    <div className="text-center space-y-6 animate-in fade-in zoom-in duration-300">
+                        <div className="p-4 bg-teal-50 rounded-full w-fit mx-auto">
+                            <Activity className="w-12 h-12 text-teal-600" />
                         </div>
-                        <div className="flex justify-between items-center mt-4 text-xs text-slate-400 font-mono">
-                            <span>00:00</span>
-                            <span>12:00</span>
-                            <span>24:00</span>
+                        <h3 className="text-xl font-bold text-slate-900">جاهز لحساب مؤشرك الحيوي؟</h3>
+                        <p className="text-slate-500">أجب على 5 أسئلة سريعة لنحلل نشاط جيناتك اليومي.</p>
+                        <button
+                            onClick={() => setScoreStep(1)}
+                            className="w-full py-4 bg-teal-600 text-white rounded-xl font-bold shadow-lg hover:bg-teal-700 transition-all"
+                        >
+                            ابدأ الفحص
+                        </button>
+                    </div>
+                )}
+
+                {/* Q1: Activity */}
+                {scoreStep === 1 && (
+                    <div className="space-y-6 text-center animate-in fade-in slide-in-from-left-4 duration-300">
+                        <h3 className="text-lg font-bold text-slate-800">كم خطوة مشيت اليوم؟</h3>
+                        <div className="grid gap-3">
+                            <button onClick={() => { setUserScore(s => s + 20); setScoreStep(2); }} className="p-4 rounded-xl border-2 border-slate-100 hover:border-teal-500 hover:bg-teal-50 transition-all text-slate-700 font-bold">
+                                أكثر من 5,000 خطوة 🏃‍♂️
+                            </button>
+                            <button onClick={() => { setScoreStep(2); }} className="p-4 rounded-xl border-2 border-slate-100 hover:border-slate-300 hover:bg-slate-50 transition-all text-slate-500">
+                                أقل من 5,000
+                            </button>
                         </div>
                     </div>
-                    <div className="flex items-center gap-3 bg-blue-50 p-4 rounded-xl text-right">
-                        <div className="p-2 bg-blue-100 rounded-full text-blue-600">
-                            <TrendingUp className="w-5 h-5" />
+                )}
+
+                {/* Q2: Sleep */}
+                {scoreStep === 2 && (
+                    <div className="space-y-6 text-center animate-in fade-in slide-in-from-left-4 duration-300">
+                        <h3 className="text-lg font-bold text-slate-800">كيف كان نومك البارحة؟</h3>
+                        <div className="grid gap-3">
+                            <button onClick={() => { setUserScore(s => s + 20); setScoreStep(3); }} className="p-4 rounded-xl border-2 border-slate-100 hover:border-teal-500 hover:bg-teal-50 transition-all text-slate-700 font-bold">
+                                6-8 ساعات (نوم عميق) 😴
+                            </button>
+                            <button onClick={() => { setScoreStep(3); }} className="p-4 rounded-xl border-2 border-slate-100 hover:border-slate-300 hover:bg-slate-50 transition-all text-slate-500">
+                                نوم متقطع / قليل
+                            </button>
                         </div>
-                        <div>
-                            <strong className="block text-blue-900 text-sm">أنت أفضل من 85% من المستخدمين</strong>
-                            <div className="flex items-center gap-1 mt-1 text-[10px] text-blue-700/80">
-                                <Database className="w-3 h-3" />
-                                <span>مقارنة بـ 250,000 عينة من البنك الحيوي السعودي</span>
+                    </div>
+                )}
+
+                {/* Q3: Sugar */}
+                {scoreStep === 3 && (
+                    <div className="space-y-6 text-center animate-in fade-in slide-in-from-left-4 duration-300">
+                        <h3 className="text-lg font-bold text-slate-800">هل تناولت مشروبات سكرية؟</h3>
+                        <div className="grid gap-3">
+                            <button onClick={() => { setUserScore(s => s + 20); setScoreStep(4); }} className="p-4 rounded-xl border-2 border-slate-100 hover:border-teal-500 hover:bg-teal-50 transition-all text-slate-700 font-bold">
+                                لا، فقط ماء/قهوة 💧
+                            </button>
+                            <button onClick={() => { setScoreStep(4); }} className="p-4 rounded-xl border-2 border-slate-100 hover:border-slate-300 hover:bg-slate-50 transition-all text-slate-500">
+                                نعم (مشروبات غازية/عصير)
+                            </button>
+                        </div>
+                    </div>
+                )}
+
+                {/* Q4: Veggies */}
+                {scoreStep === 4 && (
+                    <div className="space-y-6 text-center animate-in fade-in slide-in-from-left-4 duration-300">
+                        <h3 className="text-lg font-bold text-slate-800">هل أكلت خضروات/ورقيات؟</h3>
+                        <div className="grid gap-3">
+                            <button onClick={() => { setUserScore(s => s + 20); setScoreStep(5); }} className="p-4 rounded-xl border-2 border-slate-100 hover:border-teal-500 hover:bg-teal-50 transition-all text-slate-700 font-bold">
+                                نعم، حصة كاملة 🥦
+                            </button>
+                            <button onClick={() => { setScoreStep(5); }} className="p-4 rounded-xl border-2 border-slate-100 hover:border-slate-300 hover:bg-slate-50 transition-all text-slate-500">
+                                لا، ليس اليوم
+                            </button>
+                        </div>
+                    </div>
+                )}
+
+                {/* Q5: Energy */}
+                {scoreStep === 5 && (
+                    <div className="space-y-6 text-center animate-in fade-in slide-in-from-left-4 duration-300">
+                        <h3 className="text-lg font-bold text-slate-800">كيف تشعر بمستوى طاقتك؟</h3>
+                        <div className="grid gap-3">
+                            <button onClick={() => { setUserScore(s => s + 20); setScoreStep(6); }} className="p-4 rounded-xl border-2 border-slate-100 hover:border-teal-500 hover:bg-teal-50 transition-all text-slate-700 font-bold">
+                                نشيط وحيوي ⚡️
+                            </button>
+                            <button onClick={() => { setScoreStep(6); }} className="p-4 rounded-xl border-2 border-slate-100 hover:border-slate-300 hover:bg-slate-50 transition-all text-slate-500">
+                                خمول / تعب
+                            </button>
+                        </div>
+                    </div>
+                )}
+
+                {/* Result */}
+                {scoreStep === 6 && (
+                    <div className="space-y-6 text-center animate-in fade-in zoom-in duration-500">
+                        <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6 relative overflow-hidden">
+                            {/* Score Circle */}
+                            <div className="relative w-32 h-32 mx-auto mb-4 flex items-center justify-center">
+                                <div className="absolute inset-0 rounded-full border-8 border-slate-200"></div>
+                                <div
+                                    className="absolute inset-0 rounded-full border-8 border-teal-500 border-l-transparent transition-all duration-1000"
+                                    style={{ transform: `rotate(${45 + (userScore * 3.6)}deg)` }}
+                                ></div>
+                                <div className="text-center z-10">
+                                    <span className="block text-4xl font-bold text-slate-800">{userScore}</span>
+                                    <span className="text-[10px] text-slate-400 uppercase font-sans">
+                                        {userScore >= 80 ? 'ممتاز' : userScore >= 50 ? 'جيد' : 'يحتاج تحسين'}
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div className="flex items-end justify-center gap-2 h-24 pb-2 mb-4 opacity-50">
+                                {[40, 65, 45, 80, 55, 90, 70].map((h, i) => (
+                                    <div key={i} className="w-6 bg-teal-100 rounded-t-sm relative group h-full">
+                                        <div
+                                            style={{ height: `${h}%` }}
+                                            className="w-full bg-teal-500 absolute bottom-0 rounded-t-sm"
+                                        ></div>
+                                    </div>
+                                ))}
                             </div>
                         </div>
-                    </div>
+                        <div className="flex items-center gap-3 bg-blue-50 p-4 rounded-xl text-right">
+                            <div className="p-2 bg-blue-100 rounded-full text-blue-600">
+                                <TrendingUp className="w-5 h-5" />
+                            </div>
+                            <div>
+                                <strong className="block text-blue-900 text-sm">
+                                    {userScore >= 80
+                                        ? "أداء جيني رائع! أنت أفضل من 90%."
+                                        : "بداية جيدة! يمكننا تحسين النتيجة."}
+                                </strong>
+                                <div className="flex items-center gap-1 mt-1 text-[10px] text-blue-700/80">
+                                    <Database className="w-3 h-3" />
+                                    <span>مقارنة بـ 250,000 عينة من البنك الحيوي السعودي</span>
+                                </div>
+                            </div>
+                        </div>
 
-                    <div className="flex items-center justify-center gap-2 bg-slate-50 py-2 rounded text-[10px] text-slate-500">
-                        <ShieldCheck className="w-3 h-3 text-teal-600" />
-                        <span>بيانات مشفرة ومتوافقة مع نظام حماية البيانات الشخصية (PDPL)</span>
+                        <div className="flex items-center justify-center gap-2 bg-slate-50 py-2 rounded text-[10px] text-slate-500">
+                            <ShieldCheck className="w-3 h-3 text-teal-600" />
+                            <span>بيانات مشفرة ومتوافقة مع نظام حماية البيانات الشخصية (PDPL)</span>
+                        </div>
                     </div>
-                </div>
+                )}
             </ServiceModal>
 
             <ServiceModal
