@@ -152,7 +152,7 @@ export default function ServicesGrid() {
                         <p className="text-slate-500 text-sm mb-4">نشاطك الجيني اليوم</p>
                         <div className="flex items-end justify-center gap-2 h-32 pb-2">
                             {[40, 65, 45, 80, 55, 90, 70].map((h, i) => (
-                                <div key={i} className="w-8 bg-teal-200 rounded-t-sm relative group">
+                                <div key={i} className="w-8 bg-teal-100 rounded-t-sm relative group h-full">
                                     <div
                                         style={{ height: `${h}%` }}
                                         className="w-full bg-teal-500 absolute bottom-0 rounded-t-sm transition-all duration-500 group-hover:bg-teal-600"
@@ -172,12 +172,17 @@ export default function ServicesGrid() {
                         </div>
                         <div>
                             <strong className="block text-blue-900 text-sm">أنت أفضل من 85% من المستخدمين</strong>
-                            <p className="text-blue-700/80 text-xs">استمر في هذا النشاط لتقليل خطر السكري.</p>
+                            <div className="flex items-center gap-1 mt-1 text-[10px] text-blue-700/80">
+                                <Database className="w-3 h-3" />
+                                <span>مقارنة بـ 250,000 عينة من البنك الحيوي السعودي</span>
+                            </div>
                         </div>
                     </div>
-                    <p className="text-slate-600 text-sm leading-relaxed">
-                        هذه مجرد "لمحة". نظام وقاية المتقدم يحلل مليارات نقاط البيانات ليعطيك خطة يومية دقيقة.
-                    </p>
+
+                    <div className="flex items-center justify-center gap-2 bg-slate-50 py-2 rounded text-[10px] text-slate-500">
+                        <ShieldCheck className="w-3 h-3 text-teal-600" />
+                        <span>بيانات مشفرة ومتوافقة مع نظام حماية البيانات الشخصية (PDPL)</span>
+                    </div>
                 </div>
             </ServiceModal>
 
