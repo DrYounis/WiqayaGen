@@ -1,6 +1,6 @@
 'use client';
 
-import { QrCode, Share2, Users, Activity, ScanLine, ArrowRight, TrendingUp, AlertTriangle } from 'lucide-react';
+import { QrCode, Share2, Users, Activity, ScanLine, ArrowRight, TrendingUp, AlertTriangle, ShieldCheck, Database, FileText, Lock } from 'lucide-react';
 import Image from 'next/image';
 import { useState } from 'react';
 import ServiceModal from './ServiceModal';
@@ -202,18 +202,37 @@ export default function ServicesGrid() {
                                 <span className="text-green-400 font-mono text-xs bg-green-900/80 px-2 py-1 rounded">تم التعرف: تمر سكري</span>
                             </div>
                         </div>
+                        {/* Trust Badge Overlay */}
+                        <div className="absolute bottom-2 right-2 flex items-center gap-1 bg-black/60 px-2 py-1 rounded text-[10px] text-slate-300">
+                            <Database className="w-3 h-3 text-green-400" />
+                            <span>قاعدة بيانات الغذاء والدواء</span>
+                        </div>
                     </div>
 
-                    <div className="bg-red-50 border border-red-100 rounded-xl p-4 flex gap-3 text-right">
-                        <div className="p-2 bg-red-100 rounded-full text-red-600 shrink-0 h-fit">
-                            <AlertTriangle className="w-5 h-5" />
+                    <div className="bg-red-50 border border-red-100 rounded-xl p-4 text-right">
+                        <div className="flex items-center gap-2 mb-3 pb-3 border-b border-red-100">
+                            <AlertTriangle className="w-5 h-5 text-red-600" />
+                            <strong className="text-red-900 text-sm">تحليل التوافق الجيني: (غير متطابق)</strong>
                         </div>
-                        <div>
-                            <strong className="block text-red-900 text-sm">تحذير جيني: حمل  جلايسيمي مرتفع</strong>
-                            <p className="text-red-700/80 text-xs mt-1">
-                                بناءً على جين TCF7L2 لديك، هذا النوع من التمور يرفع الأنسولين بسرعة.
-                            </p>
-                            <div className="mt-2 text-xs font-bold text-red-800">البديل المقترح: تمر خلاص (مسموح 3 حبات).</div>
+
+                        {/* Analysis Breakdown */}
+                        <div className="space-y-2 mb-3">
+                            <div className="flex justify-between text-xs">
+                                <span className="text-slate-600">الحمل الجلايسيمي (GL):</span>
+                                <span className="text-red-600 font-bold">45 (مرتفع جداً)</span>
+                            </div>
+                            <div className="flex justify-between text-xs">
+                                <span className="text-slate-600">حساسية جين TCF7L2:</span>
+                                <span className="text-red-600 font-bold">إيجابي (نمط TT)</span>
+                            </div>
+                        </div>
+
+                        <p className="text-red-700/80 text-xs mt-1 leading-relaxed">
+                            بناءً على جين TCF7L2 لديك، هذا النوع يسبب ارتفاع حاد في الأنسولين.
+                        </p>
+                        <div className="mt-3 text-xs font-bold text-green-700 bg-green-50 p-2 rounded border border-green-100 flex items-center gap-2">
+                            <ShieldCheck className="w-4 h-4" />
+                            البديل المقترح: تمر خلاص (مسموح 3 حبات).
                         </div>
                     </div>
                 </div>
@@ -307,21 +326,42 @@ export default function ServicesGrid() {
 
                 {familyStep === 3 && (
                     <div className="space-y-6 text-center animate-in fade-in zoom-in duration-500">
-                        <div className="bg-red-50 border border-red-100 rounded-2xl p-6 relative overflow-hidden">
-                            <div className="absolute top-0 right-0 w-20 h-20 bg-red-500/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
-                            <div className="flex items-center gap-2 mb-4 justify-center text-red-700">
+                        <div className="bg-red-50 border border-red-100 rounded-2xl p-6 relative overflow-hidden text-right">
+                            {/* Header */}
+                            <div className="flex items-center gap-2 mb-4 text-red-700 border-b border-red-100 pb-3">
                                 <AlertTriangle className="w-6 h-6" />
-                                <strong className="text-lg">تم رصد نمط وراثي عالي الخطورة</strong>
+                                <strong className="text-lg">تقرير تحليل المخاطر الوراثية</strong>
                             </div>
-                            <p className="text-red-800/80 text-sm leading-relaxed mb-4">
-                                إجاباتك تشير إلى احتمالية وجود عامل وراثي سائد بنسبة 40%. يجب تتبع شجرة العائلة الكاملة لتحديد "حاملي الجين".
+
+                            {/* Risk Factors List */}
+                            <div className="bg-white/50 rounded-lg p-3 mb-4 space-y-2">
+                                <p className="text-xs font-bold text-slate-700 mb-2">عوامل الخطورة المرصودة:</p>
+                                <div className="flex items-center gap-2 text-xs text-slate-600">
+                                    <div className="w-1.5 h-1.5 bg-red-500 rounded-full"></div>
+                                    <span>تاريخ عائلي (درجة أولى)</span>
+                                </div>
+                                <div className="flex items-center gap-2 text-xs text-slate-600">
+                                    <div className="w-1.5 h-1.5 bg-red-500 rounded-full"></div>
+                                    <span>ظهور الأعراض قبل سن 50 (Early Onset)</span>
+                                </div>
+                            </div>
+
+                            <p className="text-red-800/80 text-xs leading-relaxed mb-4">
+                                احتمالية وجود "أليل سائد" (Dominant Allele) للمرض تتجاوز 40%. نوصي ببدء "تتبع التسلسل" فوراً.
                             </p>
+
                             <div className="w-full bg-slate-200 rounded-full h-2 mb-2">
                                 <div className="bg-red-500 h-2 rounded-full" style={{ width: '85%' }}></div>
                             </div>
-                            <div className="flex justify-between text-xs text-slate-500 font-mono">
+                            <div className="flex justify-between text-xs text-slate-500 font-mono mb-4">
                                 <span>مستوى الخطر</span>
-                                <span className="text-red-600 font-bold">مرتفع جداً</span>
+                                <span className="text-red-600 font-bold">مرتفع جداً (85/100)</span>
+                            </div>
+
+                            {/* Trust Badge */}
+                            <div className="flex items-center justify-center gap-1.5 bg-red-100/50 py-1.5 rounded text-[10px] text-red-800">
+                                <FileText className="w-3 h-3" />
+                                <span>موثوق حسب الأدلة السريرية السعودية (MOH)</span>
                             </div>
                         </div>
                     </div>
