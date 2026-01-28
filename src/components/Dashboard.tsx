@@ -11,7 +11,7 @@ const CircularGauge = ({ score }: { score: number }) => {
     const offset = circumference - (score / 100) * circumference;
 
     return (
-        <div className="relative flex items-center justify-center w-64 h-64 md:w-80 md:h-80 mx-auto">
+        <div className="relative flex items-center justify-center w-80 h-80 md:w-96 md:h-96 lg:w-[450px] lg:h-[450px] mx-auto">
             {/* Background Circle */}
             <svg className="w-full h-full transform -rotate-90">
                 <circle
@@ -39,13 +39,13 @@ const CircularGauge = ({ score }: { score: number }) => {
                     strokeLinecap="round"
                 />
             </svg>
-            <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
-                <span className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-2">مستوى الأمان الصحي</span>
+            <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
+                <span className="text-xs md:text-sm font-bold text-slate-400 uppercase tracking-widest mb-3">مستوى الأمان الصحي</span>
                 <motion.div
                     initial={{ opacity: 0, scale: 0.5 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.5, duration: 0.5 }}
-                    className="text-4xl md:text-5xl font-bold text-emerald-600 tracking-tight"
+                    className="text-5xl md:text-7xl lg:text-8xl font-bold text-emerald-600 tracking-tight leading-none mb-2"
                 >
                     خطر منخفض
                 </motion.div>
@@ -53,11 +53,11 @@ const CircularGauge = ({ score }: { score: number }) => {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.7, duration: 0.5 }}
-                    className="text-lg md:text-xl text-slate-500 mt-1 font-sans"
+                    className="text-2xl md:text-3xl text-slate-500 font-sans font-semibold mb-3"
                 >
                     Low Risk
                 </motion.div>
-                <div className="mt-3 flex flex-col items-center">
+                <div className="flex flex-col items-center">
                     <span className="text-xs text-emerald-600 font-bold bg-emerald-50 px-2 py-1 rounded-full border border-emerald-100">
                         ممتاز +2.4%
                     </span>
@@ -136,6 +136,16 @@ export default function Dashboard() {
                 <section className="pt-8 relative">
                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-to-tr from-teal-100/40 to-blue-100/40 rounded-full blur-[100px] pointer-events-none"></div>
                     <CircularGauge score={score} />
+
+                    {/* Footer Text Inside Gauge Card */}
+                    <div className="text-center mt-8 pb-4">
+                        <p className="text-slate-500 text-base md:text-lg font-semibold">
+                            تنبؤ صحي مدعوم بالذكاء الاصطناعي • المملكة العربية السعودية
+                        </p>
+                        <p className="text-slate-400 text-sm mt-1 font-sans">
+                            AI-Driven Health Forecasting • Kingdom of Saudi Arabia
+                        </p>
+                    </div>
                 </section>
 
                 {/* 2. Biomarker Insight Grid */}
@@ -200,18 +210,6 @@ export default function Dashboard() {
                         افحص منتجك (Gen-Halal)
                     </span>
                 </motion.button>
-            </div>
-
-            {/* Footer: AI-Driven Health Forecasting */}
-            <div className="max-w-7xl mx-auto px-6 mt-16 pb-8">
-                <div className="text-center">
-                    <p className="text-slate-400 text-sm font-medium">
-                        تنبؤ صحي مدعوم بالذكاء الاصطناعي
-                    </p>
-                    <p className="text-slate-300 text-xs mt-1 font-sans">
-                        AI-Driven Health Forecasting
-                    </p>
-                </div>
             </div>
 
         </div>

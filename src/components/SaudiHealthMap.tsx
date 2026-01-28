@@ -37,10 +37,9 @@ export default function SaudiHealthMap() {
                 initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5 }}
                 className="absolute top-10 right-10 md:right-20 bg-slate-800/80 backdrop-blur border border-slate-700 p-4 rounded-xl flex items-center gap-4"
             >
-                <div className="w-3 h-3 bg-green-500 rounded-full animate-ping"></div>
+                <div className="w-3 h-3 bg-blue-500 rounded-full animate-ping"></div>
                 <div>
-                    <div className="text-xs text-slate-400 font-sans">الرياض</div>
-                    <div className="text-sm font-bold text-white font-sans">نشاط جيني مرتفع</div>
+                    <div className="text-sm font-bold text-white font-sans">بروتوكولات معتمدة طبياً</div>
                 </div>
             </motion.div>
 
@@ -48,10 +47,9 @@ export default function SaudiHealthMap() {
                 initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1 }}
                 className="absolute bottom-10 left-10 md:left-20 bg-slate-800/80 backdrop-blur border border-slate-700 p-4 rounded-xl flex items-center gap-4"
             >
-                <div className="w-3 h-3 bg-blue-500 rounded-full animate-ping"></div>
+                <div className="w-3 h-3 bg-indigo-500 rounded-full animate-ping"></div>
                 <div>
-                    <div className="text-xs text-slate-400 font-sans">جدة</div>
-                    <div className="text-sm font-bold text-white font-sans">450+ فحص جديد</div>
+                    <div className="text-sm font-bold text-white font-sans">مصادر علمية موثقة</div>
                 </div>
             </motion.div>
 
@@ -68,11 +66,15 @@ export default function SaudiHealthMap() {
                         />
                     </svg>
                     <div className="absolute inset-0 flex flex-col items-center justify-center">
-                        <span className="text-5xl md:text-7xl font-bold text-white tracking-tighter">{score}</span>
-                        <span className="text-sm md:text-base text-teal-400 font-medium uppercase tracking-widest mt-2 font-sans">المؤشر الوطني</span>
+                        <span className="text-6xl md:text-8xl font-bold text-emerald-400 tracking-tighter font-sans">24/7</span>
+                        <span className="text-xl md:text-2xl text-white font-semibold mt-1 font-sans">Active</span>
+                        <span className="text-sm md:text-base text-teal-400 font-medium uppercase tracking-widest mt-3 font-sans flex items-center gap-2">
+                            <span className="inline-block w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
+                            الإشراف الطبي
+                        </span>
                     </div>
                 </div>
-                <p className="text-slate-400 mt-4 text-sm font-mono font-sans">مؤشر الوقاية الحي • المملكة العربية السعودية</p>
+                <p className="text-slate-400 mt-4 text-sm font-mono font-sans">بإشراف نخبة من الاستشاريين • المملكة العربية السعودية</p>
             </div>
 
         </div>
