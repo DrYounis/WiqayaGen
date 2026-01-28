@@ -5,6 +5,10 @@ import NafathLoginBtn from '@/components/NafathLoginBtn';
 import ServicesGrid from '@/components/ServicesGrid';
 import SaudiHealthMap from '@/components/SaudiHealthMap';
 import HealthPulse from '@/components/HealthPulse';
+import ScientificCredibility from '@/components/ScientificCredibility';
+import VisionAlignment from '@/components/VisionAlignment';
+import WhyNowValidation from '@/components/WhyNowValidation';
+import Footer from '@/components/Footer';
 
 export default function Home() {
   return (
@@ -48,17 +52,15 @@ export default function Home() {
               متوافق مع رؤية 2030
             </div>
 
-            <h1 className="text-4xl md:text-6xl font-extrabold text-slate-900 mb-6 leading-[1.15] tracking-tight">
-              صحــتك تكــمن في <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-500 to-blue-600">حمضك النووي.</span>
+            <h1 className="text-4xl md:text-6xl font-extrabold text-slate-900 mb-6 leading-[1.2] tracking-tight">
+              جيناتك تضع <span className="text-teal-600">المشهد،</span> <br />
+              وقراراتك تُخرج <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-500 to-blue-600">القصة.</span>
             </h1>
 
-            <p className="text-lg text-slate-600 mb-8 leading-relaxed max-w-xl mx-auto lg:mx-0">
-              أول منصة سعودية تدمج الذكاء الاصطناعي والتحليل الجيني.
-              <br className="hidden md:block" />
-              <span className="font-bold text-slate-800">كيف يتعامل حمضك النووي مع الكبسة أو القهوة العربية؟</span>
-              <br />
-              اكتشف خطة الوقاية الشخصية اليوم.
+            <p className="text-lg text-slate-600 mb-8 leading-loose max-w-xl mx-auto lg:mx-0">
+              في حين أن جيناتك تحدد البداية، فإن خياراتك اليومية—من النوم، الحركة، إلى التغذية—هي التي تقود رحلتك الصحية.
+              <br /><br />
+              <strong className="text-slate-900">نقدم لك "مؤشر وقاية":</strong> نظام الملاحة الصحي (GPS) الأول المصمم للجينوم السعودي. نحول البيانات المعقدة إلى خطة عمل وقائية ذكية، لننتقل سوياً من "رعاية المرض" إلى "ذكاء الوقاية".
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
@@ -69,6 +71,7 @@ export default function Home() {
             </div>
           </div>
 
+
           {/* Hero Visual - Saudi Health Map */}
           <div className="relative z-10">
             <SaudiHealthMap />
@@ -76,6 +79,15 @@ export default function Home() {
 
         </div>
       </header>
+
+      {/* Scientific Credibility Section */}
+      <ScientificCredibility />
+
+      {/* Vision Alignment Section */}
+      <VisionAlignment />
+
+      {/* Validation / Why Now Section */}
+      <WhyNowValidation />
 
       {/* Services Grid Section */}
       <section className="py-20 px-6 bg-slate-50 relative">
@@ -113,24 +125,7 @@ export default function Home() {
       <HealthPulse />
 
       {/* Footer */}
-      <footer className="bg-slate-950 text-slate-400 py-12 px-6 text-sm border-t border-slate-900">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="flex flex-col items-center md:items-start gap-4">
-            <div className="text-2xl font-bold text-white tracking-tighter">
-              وقاية<span className="text-teal-600">جين</span>
-            </div>
-            <div className="flex items-center gap-2 border px-3 py-1 rounded-full border-slate-800 bg-slate-900/50">
-              <div className="w-4 h-4 rounded-sm bg-green-600 flex items-center justify-center text-[8px] text-white font-bold">SA</div>
-              <span className="text-xs font-semibold text-slate-300">فخر الصناعة السعودية</span>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-2 opacity-60 hover:opacity-100 transition-opacity">
-            <span>مدعوم بالذكاء الاصطناعي التوليدي</span>
-            <BrainCircuit className="w-4 h-4" />
-          </div>
-        </div>
-      </footer>
+      <Footer />
 
     </div>
   );

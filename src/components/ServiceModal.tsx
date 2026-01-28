@@ -52,7 +52,6 @@ export default function ServiceModal({ isOpen, onClose, title, icon, children, c
                         {children}
                     </div>
 
-                    {/* Footer / CTA */}
                     <div className="p-6 bg-slate-50 border-t border-slate-100 flex flex-col gap-3">
                         <button
                             onClick={onCtaClick}
@@ -60,9 +59,6 @@ export default function ServiceModal({ isOpen, onClose, title, icon, children, c
                         >
                             <Lock className="w-4 h-4" /> {ctaText}
                         </button>
-                        <p className="text-center text-xs text-slate-400">
-                            يشمل ضمان استرداد الأموال لمدة 30 يوماً. الغاء في أي وقت.
-                        </p>
                     </div>
 
                 </motion.div>

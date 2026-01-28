@@ -2,8 +2,10 @@
 
 import { QrCode, Share2, Users, Activity, ScanLine, ArrowRight, TrendingUp, AlertTriangle, ShieldCheck, Database, FileText, Lock } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useState } from 'react';
 import ServiceModal from './ServiceModal';
+import ProductScanner from './ProductScanner';
 
 export default function ServicesGrid() {
     const [activeModal, setActiveModal] = useState<string | null>(null);
@@ -69,9 +71,9 @@ export default function ServicesGrid() {
                     </div>
                 </div>
 
-                <h3 className="text-xl font-bold text-slate-900 mb-2 font-sans">ماسح جيني آمن</h3>
+                <h3 className="text-xl font-bold text-slate-900 mb-2 font-sans">ماسح المنتجات الذكي</h3>
                 <p className="text-sm text-slate-500 mb-6 min-h-[40px]">
-                    صور، واكتشف. هل هذا التمر مناسب لجيناتك؟ تنبيهات فورية للسكر.
+                    ماسح باركود لكل المنتجات. هل هذا المنتج مناسب لجيناتك؟
                 </p>
 
                 <div className="bg-slate-900 rounded-2xl p-4 mb-6 border border-slate-800 relative overflow-hidden h-40 flex items-center justify-center">
@@ -304,57 +306,14 @@ export default function ServicesGrid() {
             <ServiceModal
                 isOpen={activeModal === 'scanner'}
                 onClose={closeModal}
-                title="ماسح جيني آمن"
+                title="ماسح المنتجات الذكي"
                 icon={<ScanLine className="w-6 h-6 text-green-600" />}
-                ctaText="احصل على دليلك الغذائي الجيني"
+                ctaText="عرض تفاصيل التحليل"
                 onCtaClick={() => window.location.href = '/join-waitlist?plan=nutrition'}
                 accentColor="bg-green-600"
             >
-                <div className="space-y-6">
-                    <div className="relative bg-slate-900 rounded-2xl h-48 overflow-hidden flex items-center justify-center border-2 border-slate-800">
-                        {/* Simulation UI */}
-                        <div className="absolute inset-0 flex items-center justify-center opacity-50">
-                            <span className="text-slate-600">Camera Feed Simulation...</span>
-                        </div>
-                        <div className="absolute inset-0 flex items-center justify-center">
-                            <div className="w-48 h-32 border-2 border-green-400/50 rounded-lg flex items-center justify-center relative">
-                                <div className="absolute top-0 w-full h-0.5 bg-green-500 animate-[scan_2s_ease-in-out_infinite]"></div>
-                                <span className="text-green-400 font-mono text-xs bg-green-900/80 px-2 py-1 rounded">تم التعرف: تمر سكري</span>
-                            </div>
-                        </div>
-                        {/* Trust Badge Overlay */}
-                        <div className="absolute bottom-2 right-2 flex items-center gap-1 bg-black/60 px-2 py-1 rounded text-[10px] text-slate-300">
-                            <Database className="w-3 h-3 text-green-400" />
-                            <span>قاعدة بيانات الغذاء والدواء</span>
-                        </div>
-                    </div>
-
-                    <div className="bg-red-50 border border-red-100 rounded-xl p-4 text-right">
-                        <div className="flex items-center gap-2 mb-3 pb-3 border-b border-red-100">
-                            <AlertTriangle className="w-5 h-5 text-red-600" />
-                            <strong className="text-red-900 text-sm">تحليل التوافق الجيني: (غير متطابق)</strong>
-                        </div>
-
-                        {/* Analysis Breakdown */}
-                        <div className="space-y-2 mb-3">
-                            <div className="flex justify-between text-xs">
-                                <span className="text-slate-600">الحمل الجلايسيمي (GL):</span>
-                                <span className="text-red-600 font-bold">45 (مرتفع جداً)</span>
-                            </div>
-                            <div className="flex justify-between text-xs">
-                                <span className="text-slate-600">حساسية جين TCF7L2:</span>
-                                <span className="text-red-600 font-bold">إيجابي (نمط TT)</span>
-                            </div>
-                        </div>
-
-                        <p className="text-red-700/80 text-xs mt-1 leading-relaxed">
-                            بناءً على جين TCF7L2 لديك، هذا النوع يسبب ارتفاع حاد في الأنسولين.
-                        </p>
-                        <div className="mt-3 text-xs font-bold text-green-700 bg-green-50 p-2 rounded border border-green-100 flex items-center gap-2">
-                            <ShieldCheck className="w-4 h-4" />
-                            البديل المقترح: تمر خلاص (مسموح 3 حبات).
-                        </div>
-                    </div>
+                <div className="space-y-4">
+                    <ProductScanner />
                 </div>
             </ServiceModal>
 
@@ -530,6 +489,6 @@ export default function ServicesGrid() {
                     </div>
                 )}
             </ServiceModal>
-        </div>
+        </div >
     );
 }

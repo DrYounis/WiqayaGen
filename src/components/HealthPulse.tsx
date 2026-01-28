@@ -28,7 +28,7 @@ const newsItems = [
         summary: "معرض الصحة العالمي 2025 يكشف عن تمويل ضخم لـ 'المستشفيات الذكية' والرعاية الوقائية القائمة على الذكاء الاصطناعي في الرياض.",
         source: "أخبار وزارة الصحة",
         sourceColor: "bg-blue-600",
-        link: "https://www.moh.gov.sa/Ministry/MediaCenter/News/Pages/default.aspx"
+        link: "https://www.moh.gov.sa/Ministry/MediaCenter/News/Pages/News-2025-10-29-008.aspx"
     },
     {
         id: 4,
@@ -149,9 +149,6 @@ export default function HealthPulse() {
                 {selectedNews && (
                     <div className="space-y-6 text-right">
                         <div>
-                            <span className={`inline-block px-3 py-1 rounded-full text-xs font-bold text-white mb-3 ${selectedNews.sourceColor}`}>
-                                {selectedNews.source}
-                            </span>
                             <h3 className="text-2xl font-bold text-slate-900 mb-4 leading-relaxed">
                                 {selectedNews.title}
                             </h3>
@@ -160,9 +157,7 @@ export default function HealthPulse() {
                             </p>
                         </div>
 
-                        <div className="bg-slate-50 p-4 rounded-xl border border-slate-100 text-sm text-slate-500">
-                            مصدر موثوق • تم التحقق من الرابط • تحديث مباشر
-                        </div>
+
                     </div>
                 )}
             </ServiceModal>
