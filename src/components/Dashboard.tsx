@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Sun, Coffee, BedDouble, ScanBarcode, ChevronLeft, Activity, BrainCircuit, Users, AlertTriangle } from 'lucide-react';
+import { Sun, Coffee, BedDouble, ScanBarcode, ChevronLeft, Activity, BrainCircuit, Users, AlertTriangle, ShieldCheck } from 'lucide-react';
 import React, { useEffect, useState } from 'react';
 import { calculateSaudiRiskScore, DEMO_VARIANTS, DEMO_USER_GENOTYPE, type RiskResult } from '@/lib/riskEngine';
 
@@ -151,16 +151,16 @@ export default function Dashboard() {
                 {/* 2. Biomarker Insight Grid */}
                 <section className="grid md:grid-cols-3 gap-6 relative z-10">
 
-                    {/* Card A: Personalized Prevention Plan */}
+                    {/* Card A: Ministry of Health Compliant */}
                     <InsightCard
-                        icon={BrainCircuit}
-                        title="خطة وقاية شخصية"
-                        status="جاهزة"
-                        action="عرض خطة اليوم"
+                        icon={ShieldCheck}
+                        title="متوافق مع وزارة الصحة"
+                        status="معتمد"
+                        action="السياسات والاشتراطات"
                         color={{
-                            bg: 'bg-teal-50', text: 'text-teal-600',
-                            badgeBg: 'bg-teal-50', badgeText: 'text-teal-700', badgeBorder: 'border-teal-100',
-                            bar: 'bg-teal-500'
+                            bg: 'bg-blue-50', text: 'text-blue-600',
+                            badgeBg: 'bg-blue-50', badgeText: 'text-blue-700', badgeBorder: 'border-blue-100',
+                            bar: 'bg-blue-500'
                         }}
                         delay={0.2}
                     />
@@ -179,16 +179,16 @@ export default function Dashboard() {
                         delay={0.3}
                     />
 
-                    {/* Card C: Genomic Risk Analysis */}
+                    {/* Card C: Saudi Genomic Precision */}
                     <InsightCard
-                        icon={AlertTriangle}
-                        title="تحليل المخاطر الجينية"
-                        status="تم التحليل"
-                        action="عرض التقرير الكامل"
+                        icon={BrainCircuit}
+                        title="دقة سعودية"
+                        status="بيانات عربية 100%"
+                        action="تفاصيل الخوارزميات"
                         color={{
-                            bg: 'bg-purple-50', text: 'text-purple-600',
-                            badgeBg: 'bg-purple-50', badgeText: 'text-purple-700', badgeBorder: 'border-purple-100',
-                            bar: 'bg-purple-500'
+                            bg: 'bg-indigo-50', text: 'text-indigo-600',
+                            badgeBg: 'bg-indigo-50', badgeText: 'text-indigo-700', badgeBorder: 'border-indigo-100',
+                            bar: 'bg-indigo-500'
                         }}
                         delay={0.4}
                     />

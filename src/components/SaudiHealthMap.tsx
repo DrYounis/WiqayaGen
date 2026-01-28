@@ -35,21 +35,21 @@ export default function SaudiHealthMap() {
             {/* Floating Data Points */}
             <motion.div
                 initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5 }}
-                className="absolute top-10 right-10 md:right-20 bg-slate-800/80 backdrop-blur border border-slate-700 p-4 rounded-xl flex items-center gap-4"
+                className="absolute top-6 right-6 md:top-8 md:right-12 bg-slate-800/95 backdrop-blur-md border-2 border-slate-600 p-4 md:p-5 rounded-2xl flex items-center gap-3 shadow-2xl"
             >
-                <div className="w-3 h-3 bg-blue-500 rounded-full animate-ping"></div>
+                <div className="w-3 h-3 bg-blue-400 rounded-full animate-ping"></div>
                 <div>
-                    <div className="text-sm font-bold text-white font-sans">بروتوكولات معتمدة طبياً</div>
+                    <div className="text-base md:text-lg font-bold text-white font-sans">متوافق مع وزارة الصحة</div>
                 </div>
             </motion.div>
 
             <motion.div
                 initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1 }}
-                className="absolute bottom-10 left-10 md:left-20 bg-slate-800/80 backdrop-blur border border-slate-700 p-4 rounded-xl flex items-center gap-4"
+                className="absolute bottom-6 left-6 md:bottom-8 md:left-12 bg-slate-800/95 backdrop-blur-md border-2 border-slate-600 p-4 md:p-5 rounded-2xl flex items-center gap-3 shadow-2xl"
             >
-                <div className="w-3 h-3 bg-indigo-500 rounded-full animate-ping"></div>
+                <div className="w-3 h-3 bg-indigo-400 rounded-full animate-ping"></div>
                 <div>
-                    <div className="text-sm font-bold text-white font-sans">مصادر علمية موثقة</div>
+                    <div className="text-base md:text-lg font-bold text-white font-sans">دقة سعودية</div>
                 </div>
             </motion.div>
 
