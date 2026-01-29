@@ -107,14 +107,23 @@ async function fetchRSSFeeds() {
 }
 
 async function generateArabicHeadlines(articles: Array<{ title: string; link: string }>) {
-    if (!process.env.OPENAI_API_KEY) {
-        console.error('[AI News Agent] OPENAI_API_KEY not found');
+    const apiKey = process.env.OPENAI_API_KEY || process.env.DEEPSEEK_API_KEY;
+
+    if (!apiKey) {
+        console.error('[AI News Agent] No API key found (OPENAI_API_KEY or DEEPSEEK_API_KEY)');
         return null;
     }
 
+    // Support DeepSeek or OpenAI - DeepSeek is more cost-effective!
+    const useDeepSeek = !!process.env.DEEPSEEK_API_KEY;
     const openai = new OpenAI({
-        apiKey: process.env.OPENAI_API_KEY,
+        apiKey: apiKey,
+        baseURL: useDeepSeek ? 'https://api.deepseek.com' : undefined,
     });
+
+    const model = process.env.AI_MODEL || (useDeepSeek ? 'deepseek-chat' : 'gpt-4o-mini');
+
+    console.log(`[AI News Agent] Using ${useDeepSeek ? 'DeepSeek' : 'OpenAI'} with model: ${model}`);
 
     const articleList = articles.map((a, i) => `${i + 1}. ${a.title}`).join('\n');
 
@@ -139,7 +148,7 @@ ${articleList}
 
     try {
         const completion = await openai.chat.completions.create({
-            model: 'gpt-4o-mini',
+            model: model,
             messages: [
                 { role: 'system', content: 'أنت محرر أخبار طبية محترف. تكتب عناوين عربية دقيقة ومختصرة.' },
                 { role: 'user', content: prompt }
