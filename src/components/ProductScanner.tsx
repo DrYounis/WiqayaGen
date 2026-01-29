@@ -19,7 +19,7 @@ export default function ProductScanner() {
     const [isScanning, setIsScanning] = useState(true);
 
     const { ref } = useZxing({
-        onDecodeResult(result) {
+        onResult(result) {
             if (isScanning && !loading) {
                 setResult(result.getText());
                 setIsScanning(false);
