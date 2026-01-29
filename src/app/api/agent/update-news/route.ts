@@ -17,7 +17,7 @@ interface UpdateNewsPayload {
 interface StoredNewsHeadline {
     id: string;
     text: string;
-    category: 'Genomics' | 'Insurance' | 'Preventive';
+    category: 'Genomics';
     url: string;
 }
 
@@ -115,24 +115,12 @@ export async function POST(request: NextRequest) {
             );
         }
 
-        // 3. Transform to internal format
-        // Auto-categorize based on keywords in title/summary
+        // 3. Transform to internal format - GENOMICS/GENETICS ONLY
         const headlines: StoredNewsHeadline[] = payload.news.slice(0, 3).map((item, index) => {
-            const combinedText = `${item.title} ${item.summary}`.toLowerCase();
-
-            let category: 'Genomics' | 'Insurance' | 'Preventive' = 'Preventive';
-
-            if (combinedText.includes('gene') || combinedText.includes('genom') ||
-                combinedText.includes('dna') || combinedText.includes('جين')) {
-                category = 'Genomics';
-            } else if (combinedText.includes('insurance') || combinedText.includes('تأمين')) {
-                category = 'Insurance';
-            }
-
             return {
                 id: `agent-${Date.now()}-${index}`,
                 text: item.summary,
-                category: category,
+                category: 'Genomics', // All items are Genomics-focused
                 url: item.url,
             };
         });
