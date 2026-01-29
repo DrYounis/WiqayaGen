@@ -14,7 +14,7 @@ export default function Footer() {
                         </Link>
                         <div className="flex items-center gap-2 border px-3 py-1 rounded-full border-slate-800 bg-slate-900/50">
                             <div className="w-4 h-4 rounded-sm bg-green-600 flex items-center justify-center text-[8px] text-white font-bold">SA</div>
-                            <span className="text-xs font-semibold text-emerald-400">فخر الصناعه السعوديه ب صُنع بحب في حائل ♥️</span>
+                            <span className="text-xs font-semibold text-emerald-400">صُنع بحب في حائل ♥️</span>
                         </div>
                     </div>
 
