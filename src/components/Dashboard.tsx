@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Sun, Coffee, BedDouble, ScanBarcode, ChevronLeft, Activity, BrainCircuit, Users, AlertTriangle, ShieldCheck } from 'lucide-react';
 import React, { useEffect, useState } from 'react';
 import { calculateSaudiRiskScore, DEMO_VARIANTS, DEMO_USER_GENOTYPE, type RiskResult } from '@/lib/riskEngine';
+import NewsTicker from './NewsTicker';
 
 const CircularGauge = ({ score }: { score: number }) => {
     const radius = 80;
@@ -118,6 +119,9 @@ export default function Dashboard() {
 
     return (
         <div className="min-h-screen bg-slate-50 font-sans pb-24" dir="rtl">
+
+            {/* News Ticker */}
+            <NewsTicker />
 
             {/* Header */}
             <div className="pt-8 px-6 pb-4 max-w-7xl mx-auto flex justify-between items-center">
