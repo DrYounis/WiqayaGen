@@ -1,23 +1,23 @@
 {
-    "lastUpdated": "2026-01-29T04:30:00.000Z",
-    "headlines": [
-        {
-            "id": "initial-1",
-            "text": "دراسات جديدة تكشف عن دور الجينات في تحديد مخاطر الأمراض المزمنة",
-            "category": "Genomics",
-            "url": "#"
-        },
-        {
-            "id": "initial-2",
-            "text": "وزارة الصحة تطلق برنامج فحص جيني مجاني ضمن رؤية 2030",
-            "category": "Preventive",
-            "url": "#"
-        },
-        {
-            "id": "initial-3",
-            "text": "التأمين الصحي السعودي يوسع تغطية الفحوصات الجينومية الوقائية",
-            "category": "Insurance",
-            "url": "#"
-        }
-    ]
+  "lastUpdated": "2026-01-29T05:19:01.658Z",
+  "headlines": [
+    {
+      "id": "agent-1769663941643-0",
+      "text": "اكتشاف علمي جديد في مجال الجينوم يفتح آفاق العلاج الشخصي",
+      "category": "Genomics",
+      "url": "https://example.com/genomic-news"
+    },
+    {
+      "id": "agent-1769663941643-1",
+      "text": "توسيع التأمين الصحي ليشمل الفحوصات الجينومية الوقائية",
+      "category": "Genomics",
+      "url": "https://example.com/insurance-update"
+    },
+    {
+      "id": "agent-1769663941643-2",
+      "text": "إطلاق برنامج وقائي جديد للفحوصات الطبية المبكرة",
+      "category": "Preventive",
+      "url": "https://example.com/preventive"
+    }
+  ]
 }
