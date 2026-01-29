@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Share2, RefreshCcw, ScanLine, ArrowRight } from 'lucide-react';
 
@@ -51,6 +51,12 @@ const ALIBIS = [
 export default function GeneticAlibi() {
     const [selected, setSelected] = useState<null | typeof ALIBIS[0]>(null);
     const [scanning, setScanning] = useState(false);
+    const [mounted, setMounted] = useState(false);
+
+    // Prevent hydration mismatch by only rendering after client mount
+    useEffect(() => {
+        setMounted(true);
+    }, []);
 
     const handleSelect = (item: typeof ALIBIS[0]) => {
         setScanning(true);
@@ -67,8 +73,24 @@ export default function GeneticAlibi() {
         window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
     };
 
+    // Don't render until mounted to prevent hydration mismatch
+    if (!mounted) {
+        return (
+            <div className="w-full max-w-3xl mx-auto p-4 py-12">
+                <div className="text-center mb-10 space-y-2">
+                    <span className="inline-block py-1 px-3 rounded-full bg-emerald-100 text-emerald-700 text-sm font-bold tracking-wide">
+                        ✨ تجربة مجانية
+                    </span>
+                    <h2 className="text-3xl md:text-4xl font-bold text-slate-900">
+                        وش "عذرك الطبي" اليوم؟
+                    </h2>
+                </div>
+            </div>
+        );
+    }
+
     return (
-        <div className="w-full max-w-3xl mx-auto p-4 py-12" dir="rtl">
+        <div className="w-full max-w-3xl mx-auto p-4 py-12" dir="rtl" suppressHydrationWarning>
 
             {/* Header Section */}
             <div className="text-center mb-10 space-y-2">
