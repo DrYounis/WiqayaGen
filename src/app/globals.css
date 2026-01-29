@@ -1,34 +1,80 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/**
+ * Wiqaya Design System - Tailwind CSS v4
+ * Medical genomics platform with clean, professional Arabic/English design
+ */
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-tajawal);
-  --font-mono: var(--font-geist-mono);
+  /* ========================================
+     Wiqaya Color Palette
+     ======================================== */
+  
+  /* Base Colors */
+  --color-background: #ffffff;
+  --color-surface: #f8fafc; /* slate-50 */
+  --color-foreground: #0c4a6e; /* sky-900 for text */
+  
+  /* Genomic Blue - Brand Primary (Trust & Technology) */
+  --color-primary-50: #f0f9ff;
+  --color-primary-100: #e0f2fe;
+  --color-primary-500: #0ea5e9; /* Main brand color */
+  --color-primary-600: #0284c7; /* Hover state */
+  --color-primary-900: #0c4a6e; /* Dark text */
+  
+  /* Life Green - Accent (Health & Action) */
+  --color-accent-50: #ecfdf5;
+  --color-accent-500: #10b981; /* Call to action */
+  --color-accent-600: #059669;
+  
+  /* Risk Red - Danger (Warnings) */
+  --color-danger: #ef4444;
+  
+  /* ========================================
+     Typography
+     ======================================== */
+  
+  /* Modern geometric sans for English + Clean Kufi for Arabic */
+  --font-family-sans: 'Inter', 'IBM Plex Sans Arabic', ui-sans-serif, system-ui, sans-serif;
+  
+  /* ========================================
+     Glass Morphism Shadows ("Madeed" Effect)
+     ======================================== */
+  
+  --shadow-glass: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -1px rgb(0 0 0 / 0.03);
+  --shadow-glass-hover: 0 10px 15px -3px rgb(0 0 0 / 0.08), 0 4px 6px -2px rgb(0 0 0 / 0.04);
 }
 
+/* ========================================
+   Dark Mode Support
+   ======================================== */
+
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  @theme {
+    --color-background: #0a0a0a;
+    --color-surface: #1e293b; /* slate-800 */
+    --color-foreground: #ededed;
   }
 }
 
+/* ========================================
+   Base Styles
+   ======================================== */
+
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-family-sans);
 }
+
+/* ========================================
+   Custom Animations
+   ======================================== */
 
 @keyframes scroll-left {
   0% {
     transform: translateX(0);
   }
-
   100% {
     transform: translateX(-50%);
   }
@@ -39,7 +85,6 @@ body {
     opacity: 0;
     transform: translateY(20px);
   }
-
   100% {
     opacity: 1;
     transform: translateY(0);
@@ -56,4 +101,18 @@ body {
 
 .pause:hover {
   animation-play-state: paused;
+}
+
+/* ========================================
+   Utility Classes
+   ======================================== */
+
+/* Glass effect utility */
+.glass {
+  box-shadow: var(--shadow-glass);
+  backdrop-filter: blur(8px);
+}
+
+.glass:hover {
+  box-shadow: var(--shadow-glass-hover);
 }
