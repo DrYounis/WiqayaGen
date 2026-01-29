@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import OpenAI from 'openai';
+import { createAIClient, AIPresets, getProviderName, getModelName } from '@/lib/ai/config';
 
 export async function POST(request: NextRequest) {
     try {
@@ -9,47 +9,36 @@ export async function POST(request: NextRequest) {
             return NextResponse.json({ error: 'Text is required' }, { status: 400 });
         }
 
-        // Support both DeepSeek and OpenAI
-        const apiKey = process.env.DEEPSEEK_API_KEY || process.env.OPENAI_API_KEY;
+        // Create AI client with centralized config
+        const client = createAIClient();
+        const model = getModelName();
+        const provider = getProviderName();
 
-        if (!apiKey) {
-            return NextResponse.json(
-                { error: 'No API key configured' },
-                { status: 500 }
-            );
-        }
+        console.log(`[Summarizer] Using ${provider} with model: ${model}`);
 
-        const useDeepSeek = !!process.env.DEEPSEEK_API_KEY;
-        const client = new OpenAI({
-            apiKey: apiKey,
-            baseURL: useDeepSeek ? 'https://api.deepseek.com' : undefined,
-        });
-
-        const model = process.env.AI_MODEL || (useDeepSeek ? 'deepseek-chat' : 'gpt-4o-mini');
-
-        // Different prompts for different document types
-        const systemPrompts = {
-            medical: 'أنت طبيب استشاري متخصص في تبسيط التقارير الطبية والجينومية. اشرح المصطلحات الطبية المعقدة بلغة عربية بسيطة وواضحة للمرضى.',
-            genomic: 'أنت عالم جينات متخصص في شرح التقارير الجينومية. وضح المتغيرات الجينية ومخاطرها الصحية بأسلوب مبسط باللغة العربية.',
-            general: 'أنت مساعد ذكي يلخص النصوص بشكل واضح ومختصر باللغة العربية.',
+        // Get preset configuration based on type
+        const presetMap = {
+            medical: AIPresets.medicalSummary,
+            genomic: AIPresets.genomicSummary,
+            general: AIPresets.generalSummary,
         };
 
-        const systemContent = systemPrompts[type as keyof typeof systemPrompts] || systemPrompts.general;
+        const preset = presetMap[type as keyof typeof presetMap] || AIPresets.generalSummary;
 
         const response = await client.chat.completions.create({
             model: model,
             messages: [
                 {
                     role: 'system',
-                    content: systemContent,
+                    content: preset.systemPrompt,
                 },
                 {
                     role: 'user',
                     content: `الرجاء تلخيص وتبسيط النص التالي بأسلوب واضح ومباشر:\n\n${text}`,
                 },
             ],
-            max_tokens: 800,
-            temperature: 0.7,
+            max_tokens: preset.maxTokens,
+            temperature: preset.temperature,
         });
 
         const summary = response.choices[0]?.message?.content || '';
@@ -57,7 +46,7 @@ export async function POST(request: NextRequest) {
         return NextResponse.json({
             success: true,
             summary: summary,
-            provider: useDeepSeek ? 'DeepSeek' : 'OpenAI',
+            provider: provider,
             model: model,
         });
 
