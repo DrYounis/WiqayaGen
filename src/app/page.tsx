@@ -1,128 +1,136 @@
 import React from 'react';
-import { Dna, BrainCircuit, ShieldCheck, Activity, TrendingUp, Lock, FileText, CheckCircle } from 'lucide-react';
 import Link from 'next/link';
-import NafathLoginBtn from '@/components/NafathLoginBtn';
-import ServicesGrid from '@/components/ServicesGrid';
+import { ArrowRight, TrendingDown, Database, Activity } from 'lucide-react';
 import SaudiHealthMap from '@/components/SaudiHealthMap';
-import HealthPulse from '@/components/HealthPulse';
-import ScientificCredibility from '@/components/ScientificCredibility';
+import SaaSSolutions from '@/components/SaaSSolutions';
+import CompetitiveEdge from '@/components/CompetitiveEdge';
 import VisionAlignment from '@/components/VisionAlignment';
-import WhyNowValidation from '@/components/WhyNowValidation';
 import Footer from '@/components/Footer';
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-slate-50 overflow-x-hidden font-sans" dir="rtl">
 
-      {/* Top Banner */}
+      {/* Top Banner - B2G Focus */}
       <div className="bg-slate-900 text-teal-400 text-xs md:text-sm py-2 text-center px-4 font-bold tracking-wide">
-        🚀 انضم إلى حراك #صحتك_جيناتك. تقييم مخاطر جينية مجاني لأول 1,000 مواطن.
+        🏛️ حلول تقنية متخصصة لبرنامج تحول القطاع الصحي ومشاريع التخصيص.
       </div>
 
       {/* Navbar relative */}
       <nav className="relative w-full p-6 flex justify-between items-center z-50 max-w-7xl mx-auto">
-        <Link href="/" className="text-2xl font-bold text-slate-900 tracking-tighter">
-          وقاية<span className="text-teal-600">جين</span>
+        <Link href="/" className="text-2xl font-bold text-slate-900 tracking-tighter flex items-center gap-2">
+          <span className="bg-teal-600 text-white w-8 h-8 rounded-lg flex items-center justify-center text-lg">W</span>
+          <span>وقاية<span className="text-teal-600">جين</span></span>
+          <span className="text-xs text-slate-400 font-normal px-2 border-r border-slate-300 mr-2">نسخة الأعمال</span>
         </Link>
 
         <div className="hidden md:flex gap-8 font-medium text-slate-600 text-sm">
-          <Link href="/executive-summary" className="hover:text-teal-600 transition-colors">رؤية 2030</Link>
-          <Link href="/tech-specs" className="hover:text-teal-600 transition-colors">التقنية</Link>
-          <Link href="/pitch-deck" className="hover:text-teal-600 transition-colors">المستثمرين</Link>
+          <Link href="#solutions" className="hover:text-teal-600 transition-colors">الحلول</Link>
+          <Link href="#impact" className="hover:text-teal-600 transition-colors">الأثر الاقتصادي</Link>
+          <Link href="/pitch-deck" className="hover:text-teal-600 transition-colors">علاقات المستثمرين</Link>
         </div>
 
         <Link href="/join-waitlist" className="hidden md:block">
-          <span className="px-5 py-2.5 bg-slate-900 text-white text-sm font-bold rounded-lg hover:bg-slate-800 transition-colors">
-            ابدأ الآن
+          <span className="px-5 py-2.5 bg-teal-600 text-white text-sm font-bold rounded-lg hover:bg-teal-700 transition-colors shadow-lg shadow-teal-600/20">
+            طلب عرض تجريبي
           </span>
         </Link>
       </nav>
 
-      {/* Hero Section */}
-      <header className="relative py-16 px-6 lg:py-24 overflow-hidden">
+      {/* Hero Section - B2G */}
+      <header className="relative py-16 px-6 lg:py-20 overflow-hidden">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
           <div className="relative z-10 text-center lg:text-right">
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-teal-50 border border-teal-100 rounded-full text-teal-700 text-xs font-bold mb-6">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-teal-500"></span>
-              </span>
-              Vision 2030 Aligned
-              متوافق مع رؤية 2030
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-teal-50 border border-teal-100 rounded-full text-teal-800 text-xs font-bold mb-6">
+              <span className="w-2 h-2 rounded-full bg-teal-500"></span>
+              ممكن رقمي للصحة الوقائية
             </div>
 
             <h1 className="text-4xl md:text-6xl font-extrabold text-slate-900 mb-6 leading-[1.2] tracking-tight">
-              جيناتك تضع <span className="text-teal-600">المشهد،</span> <br />
-              وقراراتك تُخرج <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-500 to-blue-600">القصة.</span>
+              من البيانات الجينية، <br />
+              إلى <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-blue-600">كفاءة الإنفاق الوطني.</span>
             </h1>
 
             <p className="text-lg text-slate-600 mb-8 leading-loose max-w-xl mx-auto lg:mx-0">
-              في حين أن جيناتك تحدد البداية، فإن خياراتك اليومية—من النوم، الحركة، إلى التغذية—هي التي تقود رحلتك الصحية.
-              <br /><br />
-              <strong className="text-slate-900">نقدم لك "مؤشر وقاية":</strong> نظام الملاحة الصحي (GPS) الأول المصمم للجينوم السعودي. نحول البيانات المعقدة إلى خطة عمل وقائية ذكية، لننتقل سوياً من "رعاية المرض" إلى "ذكاء الوقاية".
+              شريكك التقني لتحويل "المخاطر الوراثية" إلى "أصول وقائية".
+              <br />
+              ممكّن ذكي يدعم برنامج تحول القطاع الصحي في الانتقال من الدفع مقابل الخدمة إلى <strong className="text-slate-900">الدفع مقابل القيمة (Value-Based Care).</strong>
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <NafathLoginBtn />
-              <Link href="/join-waitlist" className="px-8 py-3 bg-white text-slate-900 border border-slate-200 rounded-lg hover:bg-slate-50 transition-all font-bold text-lg flex items-center justify-center gap-2">
-                افحص مجاناً
+              <Link href="/join-waitlist" className="px-8 py-3 bg-slate-900 text-white rounded-lg hover:bg-slate-800 transition-all font-bold text-lg flex items-center justify-center gap-2 shadow-xl">
+                احجز استشارة
+              </Link>
+              <Link href="#solutions" className="px-8 py-3 bg-white text-slate-700 border border-slate-200 rounded-lg hover:bg-slate-50 transition-all font-bold text-lg flex items-center justify-center gap-2">
+                استكشف حلولنا
               </Link>
             </div>
           </div>
 
 
-          {/* Hero Visual - Saudi Health Map */}
-          <div className="relative z-10">
+          {/* Hero Visual - Saudi Health Map Reused */}
+          <div className="relative z-10 scale-90 lg:scale-100">
+            <div className="absolute top-0 right-0 bg-white/80 backdrop-blur-md p-4 rounded-xl border border-teal-100 shadow-sm z-20 translate-y-4 translate-x-4 animate-in fade-in slide-in-from-bottom-4 duration-1000">
+              <div className="flex items-center gap-3">
+                <div className="bg-teal-100 p-2 rounded-lg text-teal-600"><Activity className="w-5 h-5" /></div>
+                <div>
+                  <div className="text-xs text-slate-500 font-bold">توفير متوقع (سنوي)</div>
+                  <div className="text-lg font-bold text-slate-900">1.2 مليار ر.س</div>
+                </div>
+              </div>
+            </div>
             <SaudiHealthMap />
           </div>
 
         </div>
       </header>
 
-      {/* Scientific Credibility Section */}
-      <ScientificCredibility />
-
-      {/* Vision Alignment Section */}
-      <VisionAlignment />
-
-      {/* Validation / Why Now Section */}
-      <WhyNowValidation />
-
-      {/* Services Grid Section */}
-      <section className="py-20 px-6 bg-slate-50 relative">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">منظومة وقاية</h2>
-            <p className="text-slate-500 max-w-2xl mx-auto">
-              ثلاث أدوات قوية مصممة لنمط الحياة السعودي الحديث. من الإرث العائلي إلى التغذية اليومية.
-            </p>
+      {/* Pain Point Section - The Economic Problem */}
+      <section className="py-16 bg-white border-y border-slate-100" id="impact">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="order-2 md:order-1">
+              <div className="grid grid-cols-2 gap-6">
+                <div className="bg-red-50 p-6 rounded-2xl border border-red-100 text-center">
+                  <h3 className="text-4xl font-extrabold text-red-600 mb-2">70%</h3>
+                  <p className="text-sm text-red-800 font-medium">من ميزانية الصحة تستنزفها الأمراض المزمنة</p>
+                </div>
+                <div className="bg-slate-50 p-6 rounded-2xl border border-slate-100 text-center">
+                  <h3 className="text-4xl font-extrabold text-slate-700 mb-2">2030</h3>
+                  <p className="text-sm text-slate-600 font-medium">هدف خفض معدلات السمنة والسكري</p>
+                </div>
+              </div>
+            </div>
+            <div className="order-1 md:order-2">
+              <span className="text-red-500 font-bold tracking-widest text-sm uppercase mb-2 block">المشكلة</span>
+              <h2 className="text-3xl font-bold text-slate-900 mb-4">التخطيط الضبابي مكلف.</h2>
+              <p className="text-slate-600 text-lg leading-relaxed mb-6">
+                غياب البيانات الجينية السكانية الدقيقة يعني استمرار الهدر في نماذج اكتوارية غير دقيقة، وتوجيه الميزانيات نحو "العلاج" بدلاً من "الوقاية الاستباقية".
+              </p>
+              <ul className="space-y-3">
+                <li className="flex items-center gap-3 text-slate-700">
+                  <div className="w-6 h-6 rounded-full bg-red-100 flex items-center justify-center text-red-600 text-xs shrink-0">✕</div>
+                  ارتفاع تكلفة الرعاية الثلاثية (Tertiary Care).
+                </li>
+                <li className="flex items-center gap-3 text-slate-700">
+                  <div className="w-6 h-6 rounded-full bg-red-100 flex items-center justify-center text-red-600 text-xs shrink-0">✕</div>
+                  عدم معيارية البروتوكولات في الرعاية الأولية.
+                </li>
+              </ul>
+            </div>
           </div>
-
-          <ServicesGrid />
-
         </div>
       </section>
 
-      {/* CTA Section - Public Health Challenge */}
-      <section className="py-24 px-6 relative overflow-hidden bg-slate-900 text-white">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-teal-900/40 via-slate-900 to-slate-900"></div>
+      {/* SaaS Solutions Section */}
+      <SaaSSolutions />
 
-        <div className="max-w-4xl mx-auto text-center relative z-10">
-          <span className="text-teal-400 font-bold tracking-widest uppercase text-sm mb-4 block">تحدي الصحة العامة</span>
-          <h2 className="text-4xl md:text-5xl font-extrabold mb-8">#صحتك_جيناتك</h2>
-          <p className="text-xl text-slate-300 mb-10 leading-relaxed">
-            ادعُ 3 من أفراد عائلتك لفتح <span className="text-white font-bold">باقة البداية المميزة</span> مجاناً.
-            انضم إلى الحراك لرفع المؤشر الوطني للوقاية.
-          </p>
-          <Link href="/join-waitlist" className="inline-flex items-center gap-3 px-10 py-5 bg-teal-500 text-slate-900 rounded-xl font-bold text-xl hover:bg-teal-400 transition-all transform hover:scale-105 shadow-lg shadow-teal-500/20">
-            ابدأ التحدي <TrendingUp className="w-6 h-6 rotate-180" />
-          </Link>
-        </div>
-      </section>
+      {/* Competitive Edge - Local Content */}
+      <CompetitiveEdge />
 
-      {/* Health Pulse News Bar */}
-      <HealthPulse />
+      {/* Vision Alignment */}
+      <VisionAlignment />
 
       {/* Footer */}
       <Footer />
