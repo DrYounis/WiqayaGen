@@ -29,6 +29,7 @@ export default function Footer() {
                             <BrainCircuit className="w-4 h-4" />
                         </div>
                         <div className="flex gap-4 mt-2">
+                            <Link href="/knowledge" className="text-xs text-slate-500 hover:text-teal-400 transition-colors">مركز المعرفة</Link>
                             <Link href="/b2g-vision" className="text-xs text-slate-500 hover:text-teal-400 transition-colors">بوابة الشركاء الحكوميين</Link>
                             <Link href="/demo" className="text-xs text-slate-500 hover:text-teal-400 transition-colors">استعراض المنصة</Link>
                         </div>
