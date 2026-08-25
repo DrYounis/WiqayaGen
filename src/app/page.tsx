@@ -1,6 +1,5 @@
 import React from 'react';
 import Link from 'next/link';
-import { ArrowRight, TrendingDown, Database, Activity } from 'lucide-react';
 import SaudiHealthMap from '@/components/SaudiHealthMap';
 import SaaSSolutions from '@/components/SaaSSolutions';
 import CompetitiveEdge from '@/components/CompetitiveEdge';
@@ -53,7 +52,7 @@ export default function Home() {
             </h1>
 
             <p className="text-lg text-slate-600 mb-8 leading-loose max-w-xl mx-auto lg:mx-0">
-              شريكك التقني لتحويل "المخاطر الوراثية" إلى "أصول وقائية".
+              شريكك التقني لتحويل «المخاطر الوراثية» إلى «أصول وقائية».
               <br />
               ممكّن ذكي يدعم برنامج تحول القطاع الصحي في الانتقال من الدفع مقابل الخدمة إلى <strong className="text-slate-900">الدفع مقابل القيمة (Value-Based Care).</strong>
             </p>
@@ -71,15 +70,6 @@ export default function Home() {
 
           {/* Hero Visual - Saudi Health Map Reused */}
           <div className="relative z-10 scale-90 lg:scale-100">
-            <div className="absolute top-0 right-0 bg-white/80 backdrop-blur-md p-4 rounded-xl border border-teal-100 shadow-sm z-20 translate-y-4 translate-x-4 animate-in fade-in slide-in-from-bottom-4 duration-1000">
-              <div className="flex items-center gap-3">
-                <div className="bg-teal-100 p-2 rounded-lg text-teal-600"><Activity className="w-5 h-5" /></div>
-                <div>
-                  <div className="text-xs text-slate-500 font-bold">توفير متوقع (سنوي)</div>
-                  <div className="text-lg font-bold text-slate-900">1.2 مليار ر.س</div>
-                </div>
-              </div>
-            </div>
             <SaudiHealthMap />
           </div>
 
@@ -106,7 +96,7 @@ export default function Home() {
               <span className="text-red-500 font-bold tracking-widest text-sm uppercase mb-2 block">المشكلة</span>
               <h2 className="text-3xl font-bold text-slate-900 mb-4">التخطيط الضبابي مكلف.</h2>
               <p className="text-slate-600 text-lg leading-relaxed mb-6">
-                غياب البيانات الجينية السكانية الدقيقة يعني استمرار الهدر في نماذج اكتوارية غير دقيقة، وتوجيه الميزانيات نحو "العلاج" بدلاً من "الوقاية الاستباقية".
+                غياب البيانات الجينية السكانية الدقيقة يعني استمرار الهدر في نماذج اكتوارية غير دقيقة، وتوجيه الميزانيات نحو «العلاج» بدلاً من «الوقاية الاستباقية».
               </p>
               <ul className="space-y-3">
                 <li className="flex items-center gap-3 text-slate-700">
