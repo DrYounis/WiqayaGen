@@ -52,7 +52,7 @@ export default function VisionAlignment() {
                         </div>
                         <h3 className="text-xl font-bold text-slate-900 mb-3">دقة محلية</h3>
                         <p className="text-slate-500 leading-loose">
-                            خوارزمياتنا مصممة بدقة لتتوافق مع <strong className="text-slate-700">7,500+ متغير جيني سعودي</strong> موثق في خارطة الجينوم الوطنية، مما يجعل تحليلنا أدق للمواطن العربي مقارنة بالفحوصات العالمية العامة.
+                            خوارزمياتنا مصممة للاستفادة من بيانات <strong className="text-slate-700">المتغيرات الجينية السعودية</strong> المنشورة بحثياً، بهدف تحليل أكثر ملاءمة للمجتمع السعودي من الفحوصات العالمية العامة.
                         </p>
                     </div>
                 </div>

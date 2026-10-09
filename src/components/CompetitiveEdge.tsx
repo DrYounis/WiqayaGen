@@ -53,13 +53,6 @@ export default function CompetitiveEdge() {
                     </div>
 
                 </div>
-
-                <div className="mt-16 flex flex-wrap justify-center gap-6 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
-                    {/* Placeholders for logos if needed, represented as text for now */}
-                    <span className="px-6 py-3 border border-slate-700 rounded-lg text-slate-400 font-bold">منشآت</span>
-                    <span className="px-6 py-3 border border-slate-700 rounded-lg text-slate-400 font-bold">هيئة الحكومة الرقمية</span>
-                    <span className="px-6 py-3 border border-slate-700 rounded-lg text-slate-400 font-bold">وزارة الصحة</span>
-                </div>
             </div>
         </section>
     );

@@ -158,7 +158,7 @@ export default function Dashboard() {
                     {/* Card A: Ministry of Health Compliant */}
                     <InsightCard
                         icon={ShieldCheck}
-                        title="متوافق مع وزارة الصحة"
+                        title="مصمم وفق متطلبات PDPL وضوابط NCA"
                         status="معتمد"
                         action="السياسات والاشتراطات"
                         color={{

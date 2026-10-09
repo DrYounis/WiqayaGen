@@ -1,19 +1,9 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import { Dna } from 'lucide-react';
 
 export default function SaudiHealthMap() {
-    const [score, setScore] = useState(64);
-
-    useEffect(() => {
-        // Animate score slightly
-        const interval = setInterval(() => {
-            setScore(prev => Math.min(99, Math.max(60, prev + (Math.random() > 0.5 ? 1 : -1))));
-        }, 3000);
-        return () => clearInterval(interval);
-    }, []);
-
     return (
         <div className="relative w-full min-h-[22rem] md:min-h-[26rem] bg-slate-900 rounded-3xl overflow-hidden border border-slate-800 shadow-2xl flex group">
             {/* Background Grid */}
@@ -42,33 +32,21 @@ export default function SaudiHealthMap() {
                 <div className="flex justify-start">
                     <motion.div
                         initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5 }}
-                        className="bg-slate-800/95 backdrop-blur-md border-2 border-slate-600 px-3 py-2 md:px-4 md:py-3 rounded-2xl flex items-center gap-2 shadow-2xl"
+                        className="bg-slate-800/95 backdrop-blur-md border-2 border-slate-600 px-3 py-2 md:px-4 md:py-3 rounded-2xl flex items-center gap-2 shadow-2xl max-w-full"
                     >
                         <div className="w-3 h-3 bg-blue-400 rounded-full animate-ping shrink-0"></div>
-                        <div className="text-sm md:text-base font-bold text-white font-sans leading-snug">متوافق مع وزارة الصحة</div>
+                        <div className="text-sm md:text-base font-bold text-white font-sans leading-snug min-w-0">مصمم وفق متطلبات PDPL وضوابط NCA</div>
                     </motion.div>
                 </div>
 
-                {/* Central Score — ring and digits scale together so the text always fits inside */}
+                {/* Central decorative ring with logo mark */}
                 <div className="text-center">
-                    <div className="inline-block relative">
-                        <svg viewBox="0 0 100 100" className="w-40 h-40 md:w-52 md:h-52 transform -rotate-90">
+                    <div className="relative inline-flex items-center justify-center">
+                        <svg viewBox="0 0 100 100" className="w-40 h-40 md:w-52 md:h-52">
                             <circle cx="50" cy="50" r="45" className="stroke-slate-800 fill-none" strokeWidth="6" />
-                            <circle cx="50" cy="50" r="45" className="stroke-teal-500 fill-none transition-all duration-1000"
-                                strokeWidth="6"
-                                strokeDasharray="283"
-                                strokeDashoffset={283 - (283 * score) / 100}
-                                strokeLinecap="round"
-                            />
+                            <circle cx="50" cy="50" r="45" className="stroke-teal-500 fill-none" strokeWidth="6" />
                         </svg>
-                        <div className="absolute inset-0 flex flex-col items-center justify-center">
-                            <span className="text-4xl md:text-5xl font-bold text-emerald-400 tracking-tighter font-sans leading-none" dir="ltr">24/7</span>
-                            <span className="text-base md:text-lg text-white font-semibold mt-1 font-sans">Active</span>
-                            <span className="text-xs md:text-sm text-teal-400 font-medium mt-2 font-sans flex items-center gap-1.5">
-                                <span className="inline-block w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
-                                الإشراف الطبي
-                            </span>
-                        </div>
+                        <Dna className="absolute w-14 h-14 md:w-16 md:h-16 text-teal-400" />
                     </div>
                     <p className="text-slate-400 mt-3 text-xs md:text-sm font-sans">بإشراف نخبة من الاستشاريين • المملكة العربية السعودية</p>
                 </div>

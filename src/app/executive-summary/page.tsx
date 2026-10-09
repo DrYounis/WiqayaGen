@@ -110,7 +110,7 @@ export default function ExecutiveSummary() {
                         <div className="grid md:grid-cols-3 gap-6">
                             <div className="bg-slate-50 p-6 rounded-2xl">
                                 <h4 className="font-bold text-slate-900 mb-2">لشركات التأمين</h4>
-                                <p className="text-slate-600 text-sm leading-relaxed">خفض المطالبات المستقبلية بنسبة متوقعة (15-20%) وتحسين دقة البيانات الاكتوارية.</p>
+                                <p className="text-slate-600 text-sm leading-relaxed">خفض المطالبات المستقبلية وتحسين دقة البيانات الاكتوارية.</p>
                             </div>
                             <div className="bg-slate-50 p-6 rounded-2xl">
                                 <h4 className="font-bold text-slate-900 mb-2">للمريض</h4>

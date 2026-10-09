@@ -83,8 +83,8 @@ export default function Home() {
             <div className="order-2 md:order-1">
               <div className="grid grid-cols-2 gap-6">
                 <div className="bg-red-50 p-6 rounded-2xl border border-red-100 text-center">
-                  <h3 className="text-4xl font-extrabold text-red-600 mb-2">70%</h3>
-                  <p className="text-sm text-red-800 font-medium">من ميزانية الصحة تستنزفها الأمراض المزمنة</p>
+                  <h3 className="text-lg font-bold text-red-700 mb-2">الأمراض المزمنة</h3>
+                  <p className="text-sm text-red-800 font-medium leading-relaxed">من أكبر محركات الإنفاق الصحي في المملكة</p>
                 </div>
                 <div className="bg-slate-50 p-6 rounded-2xl border border-slate-100 text-center">
                   <h3 className="text-4xl font-extrabold text-slate-700 mb-2">2030</h3>
@@ -96,7 +96,7 @@ export default function Home() {
               <span className="text-red-500 font-bold tracking-widest text-sm uppercase mb-2 block">المشكلة</span>
               <h2 className="text-3xl font-bold text-slate-900 mb-4">التخطيط غير الدقيق مكلف.</h2>
               <p className="text-slate-600 text-lg leading-relaxed mb-6">
-                غياب البيانات الجينية السكانية الدقيقة يعني استمرار الهدر في نماذج اكتوارية غير دقيقة، وتوجيه الميزانيات نحو «العلاج» بدلاً من «الوقاية الاستباقية».
+                غياب البيانات الجينية السكانية الدقيقة يعني استمرار الهدر في تخطيط الموارد الصحية، وتوجيه الميزانيات نحو «العلاج» بدلاً من «الوقاية الاستباقية».
               </p>
               <ul className="space-y-3">
                 <li className="flex items-center gap-3 text-slate-700">

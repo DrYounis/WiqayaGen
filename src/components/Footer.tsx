@@ -16,11 +16,6 @@ export default function Footer() {
                             <div className="w-4 h-4 rounded-sm bg-green-600 flex items-center justify-center text-[8px] text-white font-bold">SA</div>
                             <span className="text-xs font-semibold text-emerald-400">صُنع بحب في حائل ♥️</span>
                         </div>
-                        <div className="text-[10px] text-slate-600 flex flex-col md:flex-row gap-2 items-center">
-                            <span>سجل تجاري: 1010XXXXXX</span>
-                            <span className="hidden md:inline">•</span>
-                            <span>رخصة وزارة الصحة: M-202X-YYY</span>
-                        </div>
                     </div>
 
                     <div className="flex flex-col items-end gap-2 text-right">
