@@ -35,11 +35,11 @@ export default function SaudiHealthMap() {
             {/* Floating Data Points */}
             <motion.div
                 initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5 }}
-                className="absolute top-6 right-6 md:top-8 md:right-12 bg-slate-800/95 backdrop-blur-md border-2 border-slate-600 p-4 md:p-5 rounded-2xl flex items-center gap-3 shadow-2xl"
+                className="absolute top-6 right-2 md:top-8 md:right-12 lg:top-8 lg:right-2 bg-slate-800/95 backdrop-blur-md border-2 border-slate-600 p-3 md:p-5 lg:p-3 rounded-2xl flex items-center gap-2 md:gap-3 lg:gap-2 shadow-2xl max-w-[7.5rem] md:max-w-[10rem] lg:max-w-[7.5rem]"
             >
-                <div className="w-3 h-3 bg-blue-400 rounded-full animate-ping"></div>
-                <div>
-                    <div className="text-base md:text-lg font-bold text-white font-sans">متوافق مع وزارة الصحة</div>
+                <div className="w-3 h-3 bg-blue-400 rounded-full animate-ping shrink-0"></div>
+                <div className="min-w-0">
+                    <div className="text-sm md:text-lg lg:text-sm font-bold text-white font-sans leading-snug">متوافق مع وزارة الصحة</div>
                 </div>
             </motion.div>
 
@@ -57,7 +57,7 @@ export default function SaudiHealthMap() {
             {/* Central Score */}
             <div className="relative z-10 text-center">
                 <div className="inline-block relative">
-                    <svg className="w-48 h-48 md:w-64 md:h-64 transform -rotate-90">
+                    <svg className="w-40 h-40 md:w-64 md:h-64 lg:w-48 lg:h-48 transform -rotate-90">
                         <circle cx="50%" cy="50%" r="45%" className="stroke-slate-800 fill-none stoke-[10px]" />
                         <circle cx="50%" cy="50%" r="45%" className="stroke-teal-500 fill-none stroke-[10px] transition-all duration-1000"
                             strokeDasharray="283"
@@ -66,7 +66,7 @@ export default function SaudiHealthMap() {
                         />
                     </svg>
                     <div className="absolute inset-0 flex flex-col items-center justify-center">
-                        <span className="text-6xl md:text-8xl font-bold text-emerald-400 tracking-tighter font-sans">24/7</span>
+                        <span className="text-3xl md:text-8xl lg:text-6xl font-bold text-emerald-400 tracking-tighter font-sans">24/7</span>
                         <span className="text-xl md:text-2xl text-white font-semibold mt-1 font-sans">Active</span>
                         <span className="text-sm md:text-base text-teal-400 font-medium uppercase tracking-widest mt-3 font-sans flex items-center gap-2">
                             <span className="inline-block w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
