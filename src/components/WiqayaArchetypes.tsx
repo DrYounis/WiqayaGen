@@ -107,7 +107,7 @@ export default function WiqayaArchetypes() {
     };
 
     const shareResult = () => {
-        const text = `أنا طلعت شخصيتي الجينية: ${result.title}!\nاكتشف نمطك الجيني (الخيل، الذيب، أو الصقر) هنا:\nhttps://wiqaya-gen.vercel.app\n#صحتك_جيناتك`;
+        const text = `أنا طلعت شخصيتي الجينية: ${result.title}!\nاكتشف نمطك الجيني (الخيل، الذيب، أو الصقر) هنا:\nhttps://gen.sara.plus\n#صحتك_جيناتك`;
         window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`, '_blank');
     };
 

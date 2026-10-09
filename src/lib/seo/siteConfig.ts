@@ -1,9 +1,8 @@
 export const siteConfig = {
   name: "وقاية جين",
   nameEn: "WiqayaGen",
-  // TODO: swap to the custom domain (wiqaya-gen.com) the moment DNS is live.
-  // Until then this MUST match the real deployment URL or canonical/OG tags will be wrong.
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://wiqaya-gen.vercel.app",
+  // Canonical domain — gen.sara.plus (override via NEXT_PUBLIC_SITE_URL if it changes).
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://gen.sara.plus",
   description:
     "أول منصة سعودية تدمج الذكاء الاصطناعي والتحليل الجيني للوقاية من الأمراض، ضمن رؤية تحول القطاع الصحي 2030.",
   locale: "ar_SA",

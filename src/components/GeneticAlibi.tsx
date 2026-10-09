@@ -69,7 +69,7 @@ export default function GeneticAlibi() {
 
     const shareOnWhatsApp = () => {
         if (!selected) return;
-        const text = `طلع الموضوع مو مني، الموضوع جينات! 😂\n\nعذري هو: ${selected.geneName}\nاكتشف عذرك الجيني هنا: https://wiqaya-gen.vercel.app\n#صحتك_جيناتك`;
+        const text = `طلع الموضوع مو مني، الموضوع جينات! 😂\n\nعذري هو: ${selected.geneName}\nاكتشف عذرك الجيني هنا: https://gen.sara.plus\n#صحتك_جيناتك`;
         window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
     };
 
