@@ -15,7 +15,7 @@ export default function SaudiHealthMap() {
     }, []);
 
     return (
-        <div className="relative w-full aspect-[16/9] md:aspect-[2/1] bg-slate-900 rounded-3xl overflow-hidden border border-slate-800 shadow-2xl flex items-center justify-center group">
+        <div className="relative w-full min-h-[22rem] md:min-h-[26rem] bg-slate-900 rounded-3xl overflow-hidden border border-slate-800 shadow-2xl flex group">
             {/* Background Grid */}
             <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
 
@@ -32,49 +32,57 @@ export default function SaudiHealthMap() {
                 <path d="M 200 400 L 250 200 L 400 150 L 600 200 L 650 450 L 450 550 L 250 500 Z" />
             </svg>
 
-            {/* Floating Data Points */}
-            <motion.div
-                initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5 }}
-                className="absolute top-6 right-2 md:top-8 md:right-12 lg:top-8 lg:right-2 bg-slate-800/95 backdrop-blur-md border-2 border-slate-600 p-3 md:p-5 lg:p-3 rounded-2xl flex items-center gap-2 md:gap-3 lg:gap-2 shadow-2xl max-w-[7.5rem] md:max-w-[10rem] lg:max-w-[7.5rem]"
-            >
-                <div className="w-3 h-3 bg-blue-400 rounded-full animate-ping shrink-0"></div>
-                <div className="min-w-0">
-                    <div className="text-sm md:text-lg lg:text-sm font-bold text-white font-sans leading-snug">متوافق مع وزارة الصحة</div>
+            {/*
+              Layout note: badges live in normal flow (top row / bottom row), NOT absolute.
+              Absolute corner badges inside an aspect-ratio box collided with the centered
+              ring whenever the card narrowed. In-flow rows make overlap structurally impossible.
+            */}
+            <div className="relative z-10 w-full h-full flex flex-col justify-between gap-4 p-4 md:p-6">
+                {/* Top row — badge pinned to the right (start side in RTL) */}
+                <div className="flex justify-start">
+                    <motion.div
+                        initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5 }}
+                        className="bg-slate-800/95 backdrop-blur-md border-2 border-slate-600 px-3 py-2 md:px-4 md:py-3 rounded-2xl flex items-center gap-2 shadow-2xl"
+                    >
+                        <div className="w-3 h-3 bg-blue-400 rounded-full animate-ping shrink-0"></div>
+                        <div className="text-sm md:text-base font-bold text-white font-sans leading-snug">متوافق مع وزارة الصحة</div>
+                    </motion.div>
                 </div>
-            </motion.div>
 
-            <motion.div
-                initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1 }}
-                className="absolute bottom-6 left-6 md:bottom-8 md:left-12 bg-slate-800/95 backdrop-blur-md border-2 border-slate-600 p-4 md:p-5 rounded-2xl flex items-center gap-3 shadow-2xl"
-            >
-                <div className="w-3 h-3 bg-indigo-400 rounded-full animate-ping"></div>
-                <div>
-                    <div className="text-base md:text-lg font-bold text-white font-sans">دقة سعودية</div>
-                </div>
-            </motion.div>
-
-
-            {/* Central Score */}
-            <div className="relative z-10 text-center">
-                <div className="inline-block relative">
-                    <svg className="w-40 h-40 md:w-64 md:h-64 lg:w-48 lg:h-48 transform -rotate-90">
-                        <circle cx="50%" cy="50%" r="45%" className="stroke-slate-800 fill-none stoke-[10px]" />
-                        <circle cx="50%" cy="50%" r="45%" className="stroke-teal-500 fill-none stroke-[10px] transition-all duration-1000"
-                            strokeDasharray="283"
-                            strokeDashoffset={283 - (283 * score) / 100}
-                            strokeLinecap="round"
-                        />
-                    </svg>
-                    <div className="absolute inset-0 flex flex-col items-center justify-center">
-                        <span className="text-3xl md:text-8xl lg:text-6xl font-bold text-emerald-400 tracking-tighter font-sans">24/7</span>
-                        <span className="text-xl md:text-2xl text-white font-semibold mt-1 font-sans">Active</span>
-                        <span className="text-sm md:text-base text-teal-400 font-medium uppercase tracking-widest mt-3 font-sans flex items-center gap-2">
-                            <span className="inline-block w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
-                            الإشراف الطبي
-                        </span>
+                {/* Central Score — ring and digits scale together so the text always fits inside */}
+                <div className="text-center">
+                    <div className="inline-block relative">
+                        <svg viewBox="0 0 100 100" className="w-40 h-40 md:w-52 md:h-52 transform -rotate-90">
+                            <circle cx="50" cy="50" r="45" className="stroke-slate-800 fill-none" strokeWidth="6" />
+                            <circle cx="50" cy="50" r="45" className="stroke-teal-500 fill-none transition-all duration-1000"
+                                strokeWidth="6"
+                                strokeDasharray="283"
+                                strokeDashoffset={283 - (283 * score) / 100}
+                                strokeLinecap="round"
+                            />
+                        </svg>
+                        <div className="absolute inset-0 flex flex-col items-center justify-center">
+                            <span className="text-4xl md:text-5xl font-bold text-emerald-400 tracking-tighter font-sans leading-none" dir="ltr">24/7</span>
+                            <span className="text-base md:text-lg text-white font-semibold mt-1 font-sans">Active</span>
+                            <span className="text-xs md:text-sm text-teal-400 font-medium mt-2 font-sans flex items-center gap-1.5">
+                                <span className="inline-block w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
+                                الإشراف الطبي
+                            </span>
+                        </div>
                     </div>
+                    <p className="text-slate-400 mt-3 text-xs md:text-sm font-sans">بإشراف نخبة من الاستشاريين • المملكة العربية السعودية</p>
                 </div>
-                <p className="text-slate-400 mt-4 text-sm font-mono font-sans">بإشراف نخبة من الاستشاريين • المملكة العربية السعودية</p>
+
+                {/* Bottom row — badge pinned to the left (end side in RTL) */}
+                <div className="flex justify-end">
+                    <motion.div
+                        initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1 }}
+                        className="bg-slate-800/95 backdrop-blur-md border-2 border-slate-600 px-3 py-2 md:px-4 md:py-3 rounded-2xl flex items-center gap-2 shadow-2xl"
+                    >
+                        <div className="w-3 h-3 bg-indigo-400 rounded-full animate-ping shrink-0"></div>
+                        <div className="text-sm md:text-base font-bold text-white font-sans">دقة سعودية</div>
+                    </motion.div>
+                </div>
             </div>
 
         </div>
