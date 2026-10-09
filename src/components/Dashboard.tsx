@@ -159,7 +159,7 @@ export default function Dashboard() {
                     <InsightCard
                         icon={ShieldCheck}
                         title="مصمم وفق متطلبات PDPL وضوابط NCA"
-                        status="معتمد"
+                        status="امتثال"
                         action="السياسات والاشتراطات"
                         color={{
                             bg: 'bg-blue-50', text: 'text-blue-600',
