@@ -187,7 +187,7 @@ export default function Dashboard() {
                     <InsightCard
                         icon={BrainCircuit}
                         title="دقة سعودية"
-                        status="بيانات عربية 100%"
+                        status="بيانات سعودية 100%"
                         action="تفاصيل الخوارزميات"
                         color={{
                             bg: 'bg-indigo-50', text: 'text-indigo-600',

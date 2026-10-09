@@ -9,7 +9,7 @@ export default function ScientificCredibility() {
                 <div className="text-center mb-16">
                     <span className="text-teal-600 font-bold tracking-wider uppercase text-sm mb-2 block">لماذا وقاية جين؟</span>
                     <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 mb-6">
-                        ليش جيناتك <span className="text-teal-600 relative inline-block">
+                        لماذا جيناتك <span className="text-teal-600 relative inline-block">
                             تفرق؟
                             <svg className="absolute w-full h-3 -bottom-1 left-0 text-teal-200 -z-10" viewBox="0 0 100 10" preserveAspectRatio="none">
                                 <path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="8" fill="none" />

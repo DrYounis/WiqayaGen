@@ -54,7 +54,7 @@ export default function Home() {
             <p className="text-lg text-slate-600 mb-8 leading-loose max-w-xl mx-auto lg:mx-0">
               شريكك التقني لتحويل «المخاطر الوراثية» إلى «أصول وقائية».
               <br />
-              ممكّن ذكي يدعم برنامج تحول القطاع الصحي في الانتقال من الدفع مقابل الخدمة إلى <strong className="text-slate-900">الدفع مقابل القيمة (Value-Based Care).</strong>
+              أداة تمكين ذكية تدعم برنامج تحول القطاع الصحي في الانتقال من الدفع مقابل الخدمة إلى <strong className="text-slate-900">الدفع مقابل القيمة (Value-Based Care).</strong>
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
@@ -94,18 +94,18 @@ export default function Home() {
             </div>
             <div className="order-1 md:order-2">
               <span className="text-red-500 font-bold tracking-widest text-sm uppercase mb-2 block">المشكلة</span>
-              <h2 className="text-3xl font-bold text-slate-900 mb-4">التخطيط الضبابي مكلف.</h2>
+              <h2 className="text-3xl font-bold text-slate-900 mb-4">التخطيط غير الدقيق مكلف.</h2>
               <p className="text-slate-600 text-lg leading-relaxed mb-6">
                 غياب البيانات الجينية السكانية الدقيقة يعني استمرار الهدر في نماذج اكتوارية غير دقيقة، وتوجيه الميزانيات نحو «العلاج» بدلاً من «الوقاية الاستباقية».
               </p>
               <ul className="space-y-3">
                 <li className="flex items-center gap-3 text-slate-700">
                   <div className="w-6 h-6 rounded-full bg-red-100 flex items-center justify-center text-red-600 text-xs shrink-0">✕</div>
-                  ارتفاع تكلفة الرعاية الثلاثية (Tertiary Care).
+                  ارتفاع تكلفة الرعاية الثالثية (Tertiary Care).
                 </li>
                 <li className="flex items-center gap-3 text-slate-700">
                   <div className="w-6 h-6 rounded-full bg-red-100 flex items-center justify-center text-red-600 text-xs shrink-0">✕</div>
-                  عدم معيارية البروتوكولات في الرعاية الأولية.
+                  غياب توحيد البروتوكولات في الرعاية الأولية.
                 </li>
               </ul>
             </div>

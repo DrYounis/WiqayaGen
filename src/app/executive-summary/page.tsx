@@ -28,7 +28,7 @@ export default function ExecutiveSummary() {
                 <header className="text-center mb-16">
                     <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-blue-100/50 text-blue-800 rounded-full text-xs font-semibold mb-6 border border-blue-200">
                         <FileText className="w-3 h-3" />
-                        مسودة مسرعة "إبصار"
+                        مسودة لمبادرة "إبصار"
                     </div>
                     <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 leading-tight">
                         ملخص المشروع <span className="text-slate-400 font-light text-3xl block mt-2">(Executive Summary)</span>
@@ -55,7 +55,7 @@ export default function ExecutiveSummary() {
                             </div>
                         </div>
                         <p className="text-slate-600 leading-relaxed text-lg">
-                            شركات التأمين الطبي في المملكة تعاني من ارتفاع <strong className="text-slate-900">"نسبة الخسارة"</strong> بسبب الأمراض المزمنة (سكري، قلب، ضغط) التي يتم اكتشافها وعلاجها متأخراً. النموذج الحالي للتأمين "تفاعلي" يدفع تكلفة العلاج، ولا يملك أدوات "تنبؤية" لمنع المرض قبل وقوعه، مما يؤدي لاستنزاف المحافظ التأمينية.
+                            شركات التأمين الطبي في المملكة تعاني من ارتفاع <strong className="text-slate-900">"نسبة الخسارة"</strong> بسبب الأمراض المزمنة (سكري، قلب، ضغط) التي يتم اكتشافها وعلاجها متأخراً. النموذج الحالي للتأمين "تفاعلي" يدفع تكلفة العلاج، ولا يملك أدوات "تنبؤية" لمنع المرض قبل وقوعه، مما يؤدي إلى استنزاف المحافظ التأمينية.
                         </p>
                     </section>
 
@@ -85,7 +85,7 @@ export default function ExecutiveSummary() {
                                 <span className="w-6 h-6 rounded-full bg-blue-200 text-blue-700 flex items-center justify-center text-sm font-bold shrink-0 mt-1">2</span>
                                 <div>
                                     <strong className="block text-slate-900 mb-1">المساعد الصحي الذكي</strong>
-                                    <p className="text-slate-600">وكيل صحي ذكي يقدم خططاً "فائقة التخصيص" (تغذية، مكملات، نمط حياة) بناءً على جينات الفرد.</p>
+                                    <p className="text-slate-600">وكيل صحي ذكي يقدم خططاً "مخصصة بدقة" (تغذية، مكملات، نمط حياة) بناءً على جينات الفرد.</p>
                                 </div>
                             </li>
                             <li className="flex gap-3">

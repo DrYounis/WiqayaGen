@@ -31,7 +31,7 @@ export default function PitchDeck() {
             imageSrc: "/images/pitch-deck/slide-3.png",
             content: [
                 "أول منصة SaaS للذكاء الاكتواري الجيني (Genomic Actuarial Intelligence).",
-                "نقوم بتحليل الـ Polygenic Risk Scores (PRS) وتحويلها إلى 'مؤشرات قابلة للعمل' لشركات التأمين.",
+                "نحلّل الـ Polygenic Risk Scores (PRS) وتحويلها إلى 'مؤشرات قابلة للعمل' لشركات التأمين.",
                 "الهدف: خفض تكلفة الوثيقة عبر الوقاية الاستباقية."
             ]
         },
@@ -66,7 +66,7 @@ export default function PitchDeck() {
             title: "الطلب (Sandbox)",
             imageSrc: "/images/pitch-deck/slide-7.png",
             content: [
-                "المطلوب: قبولنا في 'إبصار ساندبوكس' (Ibsar Sandbox).",
+                "المطلوب: قبولنا في البيئة التجريبية 'إبصار' (Ibsar Sandbox).",
                 "النطاق التجريبي: 1,000 مستخدم بالتعاون مع شركة تأمين شريكة.",
                 "مؤشر النجاح: إثبات تحسن المؤشرات الصحية للمشاركين خلال 6 أشهر."
             ]
@@ -76,7 +76,7 @@ export default function PitchDeck() {
             imageSrc: "/images/pitch-deck/slide-8.png",
             content: [
                 "قيادة طبية: د. محمد يونس (خبير تأمين وطب أسرة).",
-                "فريق تقني: مطورين سعوديين متخصصين في الذكاء الاصطناعي وأمن البيانات.",
+                "فريق تقني: مطورون سعوديون متخصصون في الذكاء الاصطناعي وأمن البيانات.",
                 "التزام كامل بضوابط الأمن السيبراني (NDMO/NCA)."
             ]
         }

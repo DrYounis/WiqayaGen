@@ -85,7 +85,7 @@ export default function TechnicalProposal() {
                                 </p>
                                 <div className="bg-slate-50 p-3 rounded border border-slate-100 text-sm text-slate-700">
                                     <strong className="text-blue-700 block mb-1">القيمة الحكومية:</strong>
-                                    تزويد الـ 150 مركز رعاية أولية التي تم تخصيصها بأحدث الأدلة العلمية لضمان وحدة جودة التشخيص (Standardization).
+                                    تزويد مراكز الرعاية الأولية الـ 150 التي تم تخصيصها بأحدث الأدلة العلمية لضمان وحدة جودة التشخيص (Standardization).
                                 </div>
                             </div>
                         </div>
@@ -98,7 +98,7 @@ export default function TechnicalProposal() {
                             <div>
                                 <h3 className="text-xl font-bold text-slate-900 mb-2">3. منصة رقابة جودة "الرعاية الافتراضية"</h3>
                                 <p className="text-slate-600 mb-4 leading-relaxed">
-                                    أداة رقمية لمتابعة جودة الفحوصات والتشخيصات في منظومة "الطب الاتصالي".
+                                    أداة رقمية لمتابعة جودة الفحوصات والتشخيصات في منظومة "الرعاية الافتراضية".
                                 </p>
                                 <div className="bg-slate-50 p-3 rounded border border-slate-100 text-sm text-slate-700">
                                     <strong className="text-indigo-700 block mb-1">القيمة الحكومية:</strong>
@@ -114,7 +114,7 @@ export default function TechnicalProposal() {
                 <section className="grid md:grid-cols-3 gap-6 mb-16">
                     <div className="bg-slate-900 text-white p-6 rounded-xl">
                         <h3 className="font-bold text-lg mb-3">خبرة طبية وتأمينية</h3>
-                        <p className="text-slate-400 text-sm">قيادة المشروع من قبل طبيب ممارس وخبير في قطاع التأمين الطبي.</p>
+                        <p className="text-slate-400 text-sm">يقود المشروع طبيبٌ ممارس وخبير في قطاع التأمين الطبي.</p>
                     </div>
                     <div className="bg-teal-600 text-white p-6 rounded-xl shadow-lg shadow-teal-600/20">
                         <h3 className="font-bold text-lg mb-3">التزام بالمحتوى المحلي</h3>

@@ -41,7 +41,7 @@
      ======================================== */
 
   /* Modern geometric sans for English + Clean Kufi for Arabic */
-  --font-family-sans: 'Inter', 'IBM Plex Sans Arabic', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-tajawal), 'IBM Plex Sans Arabic', ui-sans-serif, system-ui, sans-serif;
 
   /* ========================================
      Glass Morphism Shadows ("Madeed" Effect)
@@ -77,7 +77,7 @@ body {
 
   color: #0f172a;
   /* slate-900 for high readability */
-  font-family: var(--font-family-sans);
+  font-family: var(--font-sans);
 }
 
 /* ========================================

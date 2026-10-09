@@ -29,7 +29,7 @@ export default function SaaSSolutions() {
                         </h3>
 
                         <p className="text-slate-600 mb-6 leading-relaxed">
-                            اربط المخاطر الجينية بالنماذج الاكتوارية. أداتنا تساعد مركز التأمين الوطني على التنبؤ بتكاليف الأمراض الوراثية وخفض الهدر المالي في الرعاية طويلة الأمد.
+                            اربط المخاطر الجينية بالنماذج الاكتوارية. أداتنا تساعد مجلس الضمان الصحي على التنبؤ بتكاليف الأمراض الوراثية وخفض الهدر المالي في الرعاية طويلة الأمد.
                         </p>
 
                         <div className="bg-slate-50 rounded-lg p-4 mb-8">
@@ -67,7 +67,7 @@ export default function SaaSSolutions() {
                                 <span className="font-bold text-slate-900">القيمة المضافة</span>
                             </div>
                             <p className="text-sm text-slate-500">
-                                توحيد معايير الرعاية (Standardization) وتقليل التباين الإكلينيكي بين التجمعات.
+                                توحيد معايير الرعاية (Standardization) وتقليل التباين السريري بين التجمعات.
                             </p>
                         </div>
 
@@ -83,7 +83,7 @@ export default function SaaSSolutions() {
                         </div>
 
                         <h3 className="text-2xl font-bold text-slate-900 mb-3">
-                            نظام الرقابة الجينية<br />للطب الاتصالي
+                            نظام الرقابة الجينية<br />للرعاية الافتراضية
                         </h3>
 
                         <p className="text-slate-600 mb-6 leading-relaxed">

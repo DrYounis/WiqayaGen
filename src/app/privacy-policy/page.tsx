@@ -15,7 +15,7 @@ export default function PrivacyPolicyPage() {
 
                 <div className="prose prose-lg prose-slate max-w-none">
                     <p className="text-slate-500 mb-8 font-bold">
-                        **آخر تحديث: 2026**
+                        آخر تحديث: 2026
                     </p>
 
                     <p className="lead text-lg text-slate-600 mb-8">
@@ -67,7 +67,7 @@ export default function PrivacyPolicyPage() {
 
                     <div className="bg-slate-50 p-6 rounded-xl border border-slate-100 text-center">
                         <p className="text-slate-500 font-medium mb-2">للتواصل مع مسؤول حماية البيانات:</p>
-                        <a href="mailto:Privacy@wiqaya-gen.com" className="text-emerald-600 font-bold hover:underline dir-ltr block">
+                        <a href="mailto:Privacy@wiqaya-gen.com" dir="ltr" className="text-emerald-600 font-bold hover:underline block">
                             Privacy@wiqaya-gen.com
                         </a>
                     </div>

@@ -39,7 +39,7 @@ export default function ServicesGrid() {
 
                 <h3 className="text-xl font-bold text-slate-900 mb-2 font-sans">مؤشر وقاية</h3>
                 <p className="text-sm text-slate-500 mb-6 min-h-[40px]">
-                    تنافس مع جيناتك. درجة صحية حية 0-100 تتزامن مع نشاطك اليومي.
+                    تنافس مع جيناتك. درجة صحية حية 0-100 تتغيّر مع نشاطك اليومي.
                 </p>
 
                 <div className="bg-slate-50 rounded-2xl p-6 flex items-center justify-center mb-6 border border-slate-100">
@@ -73,7 +73,7 @@ export default function ServicesGrid() {
 
                 <h3 className="text-xl font-bold text-slate-900 mb-2 font-sans">ماسح المنتجات الذكي</h3>
                 <p className="text-sm text-slate-500 mb-6 min-h-[40px]">
-                    ماسح باركود لكل المنتجات. هل هذا المنتج مناسب لجيناتك؟
+                    ماسح باركود لجميع المنتجات. هل هذا المنتج مناسب لجيناتك؟
                 </p>
 
                 <div className="bg-slate-900 rounded-2xl p-4 mb-6 border border-slate-800 relative overflow-hidden h-40 flex items-center justify-center">
@@ -191,7 +191,7 @@ export default function ServicesGrid() {
                 {/* Q2: Sleep */}
                 {scoreStep === 2 && (
                     <div className="space-y-6 text-center animate-in fade-in slide-in-from-left-4 duration-300">
-                        <h3 className="text-lg font-bold text-slate-800">كيف كان نومك البارحة؟</h3>
+                        <h3 className="text-lg font-bold text-slate-800">كيف كان نومك الليلة الماضية؟</h3>
                         <div className="grid gap-3">
                             <button onClick={() => { setUserScore(s => s + 20); setScoreStep(3); }} className="p-4 rounded-xl border-2 border-slate-100 hover:border-teal-500 hover:bg-teal-50 transition-all text-slate-700 font-bold">
                                 6-8 ساعات (نوم عميق) 😴

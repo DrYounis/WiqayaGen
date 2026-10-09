@@ -89,7 +89,7 @@ export default function ProductScanner() {
             {loading && (
                 <div className="flex flex-col items-center justify-center p-12 gap-4">
                     <Loader2 className="w-12 h-12 text-teal-600 animate-spin" />
-                    <p className="text-slate-500 animate-pulse">جاري تحليل المنتج...</p>
+                    <p className="text-slate-500 animate-pulse">جارٍ تحليل المنتج...</p>
                 </div>
             )}
 

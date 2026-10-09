@@ -348,7 +348,7 @@ export default function JoinWaitlist() {
                                     />
                                     <div className="flex justify-end pt-4">
                                         <button onClick={handleSubmit} disabled={!formData.city || isSubmitting} className="px-8 py-4 bg-slate-900 text-white rounded-xl shadow-xl hover:bg-slate-800 disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center gap-2 transform hover:scale-105">
-                                            {isSubmitting ? 'جاري التقديم...' : 'انضم لقائمة الانتظار'} <ArrowLeft className="w-5 h-5" />
+                                            {isSubmitting ? 'جارٍ التقديم...' : 'انضم لقائمة الانتظار'} <ArrowLeft className="w-5 h-5" />
                                         </button>
                                     </div>
                                 </div>
