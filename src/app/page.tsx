@@ -5,10 +5,12 @@ import SaaSSolutions from '@/components/SaaSSolutions';
 import CompetitiveEdge from '@/components/CompetitiveEdge';
 import VisionAlignment from '@/components/VisionAlignment';
 import Footer from '@/components/Footer';
+import ComingSoon from '@/components/ComingSoon';
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-slate-50 overflow-x-hidden font-sans" dir="rtl">
+    <>
+      <div className="min-h-screen bg-slate-50 overflow-x-hidden font-sans blur-md pointer-events-none select-none" dir="rtl">
 
       {/* Top Banner - B2G Focus */}
       <div className="bg-slate-900 text-teal-400 text-xs md:text-sm py-2 text-center px-4 font-bold tracking-wide">
@@ -126,5 +128,7 @@ export default function Home() {
       <Footer />
 
     </div>
+    <ComingSoon />
+    </>
   );
 }

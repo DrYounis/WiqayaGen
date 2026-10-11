@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { ArrowRight, ArrowLeft, ChevronLeft, ChevronRight } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
+import ComingSoon from '@/components/ComingSoon';
 
 export default function PitchDeck() {
     const [currentSlide, setCurrentSlide] = useState(0);
@@ -104,7 +105,8 @@ export default function PitchDeck() {
     const currentSlideData = slides[currentSlide];
 
     return (
-        <div className="min-h-screen bg-slate-950 text-white relative overflow-hidden flex flex-col items-center justify-center">
+        <>
+        <div className="min-h-screen bg-slate-950 text-white relative overflow-hidden flex flex-col items-center justify-center blur-md pointer-events-none select-none">
 
             {/* Background Effects */}
             <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900/40 via-slate-950 to-slate-950 z-0"></div>
@@ -231,5 +233,7 @@ export default function PitchDeck() {
             </div>
 
         </div>
+        <ComingSoon />
+        </>
     );
 }
